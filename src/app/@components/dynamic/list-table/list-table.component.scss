@@ -1,0 +1,101 @@
+
+.white-color {
+  color: black !important;
+}
+mat-icon {
+  color:white;
+}
+.margin-right {
+  margin-right: 20px;
+}
+.text-white {
+  color:white;
+}
+button {
+  background-color: white;
+  color: black;
+  padding-inline: 11px;
+  border-radius: 5px;
+  margin-inline: 10px;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+
+mat-form-field {
+  width:250px !important;
+  z-index: 1;
+}
+
+.main {
+  background-color: white;
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+.header {
+  background-color: #3d4852;
+}
+.secondary-header {
+  padding-left:20px;
+  padding-top: 20px;
+}
+.secondary-header > mat-form-field {
+  background-color: coral;
+}
+::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+  padding: 0.5em 0 !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+  margin-top: -15px;
+}
+/*table content*/
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+table {
+  width: 100%;
+}
+th.mat-sort-header-sorted {
+  color: black;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  margin-inline: 20px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+  width: 500px;
+}
+th {
+  font-size:12px;
+  font-weight:bolder ;
+}
+tr.mat-row, tr.mat-footer-row {
+  height: 33px;
+}
+
+
+

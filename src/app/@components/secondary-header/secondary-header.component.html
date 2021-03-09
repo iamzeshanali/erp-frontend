@@ -1,0 +1,2305 @@
+
+<header>
+  <div>
+    <input type="checkbox" name="" id="check">
+
+    <div class="nav-btn">
+      <div class="nav-links">
+        <ul>
+          <!--Home-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">home</mat-icon>
+            <a href="#"><small>Home</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a href="#">
+                    Dashboard
+                    <mat-icon>launch</mat-icon>
+                  </a>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">
+                    Dashboard Configurations
+                    <mat-icon>launch</mat-icon>
+                  </a>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Link 3<i class="fas fa-caret-down"></i></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">Link 1</a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">Link 2</a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">Link 3</a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">More<i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown second">
+                          <ul>
+                            <li class="dropdown-link">
+                              <a href="#">Link 1</a>
+                            </li>
+                            <li class="dropdown-link">
+                              <a href="#">Link 2</a>
+                            </li>
+                            <li class="dropdown-link">
+                              <a href="#">Link 3</a>
+                            </li>
+                            <div class="arrow"></div>
+                          </ul>
+                        </div>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+          <!--MyView-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">card_travel</mat-icon>
+            <a href="#"><small>My View</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a href="#">
+                    Open Items
+                    <mat-icon>launch</mat-icon>
+                  </a>
+                </li>
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+          <!--Financial-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">assessment</mat-icon>
+            <a href="#"><small>Financial</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a [routerLink]="['financial/paymentTerms']">Payment Terms<mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['financial/purchaseOrder']">Purchase Orders<mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['financial/purchaseOrderDetail']">Purchase Orders Detail<mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['financial/purchaseOrderReceiving']">Purchase Orders Receiving<mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['financial/receipt']">Receipt<mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['financial/salesInvoice']">Sales Invoice<mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['financial/salesInvoiceDetail']">Sales Invoice Detail<mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['financial/taxClass']">TAX Class<mat-icon>launch</mat-icon></a>
+                </li>
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+          <!--Sales-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">show_chart</mat-icon>
+            <a href="#"><small>Sales</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a [routerLink]="['sales/brands']">Brands <mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['sales/customers']">Customers <mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['sales/salesRepresentative']">Sales Representative <mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['sales/preferredVendor']">Preferred Vendor <mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['sales/products']">Product <mat-icon>launch</mat-icon></a>
+                </li>
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+          <!--Purchasing-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">shopping_cart</mat-icon>
+            <a href="#"><small>Purchasing</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+          <!--Communications-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">email</mat-icon>
+            <a href="#"><small>Communications</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+          <!--Inventory-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">view_compact</mat-icon>
+            <a href="#"><small>Inventory</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a [routerLink]="['inventory/casePack']">Case Pack<mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['inventory/family']">Family<mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['inventory/group']">Group<mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['inventory/uom']">UOM<mat-icon>launch</mat-icon></a>
+                </li>
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+          <!--Warehouses-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">location_city</mat-icon>
+            <a href="#"><small>Warehouses</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a [routerLink]="['warehouse/shipments']">Shipments<mat-icon>launch</mat-icon></a>
+                </li>
+                <li class="dropdown-link">
+                  <a [routerLink]="['warehouse/warehouse']">Warehouses<mat-icon>launch</mat-icon></a>
+                </li>
+
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+          <!--CRM-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">group</mat-icon>
+            <a href="#"><small>CRM</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+          <!--General Reports-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">settings</mat-icon>
+            <a href="#"><small>General Reports</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+          <!--System Maintenance-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">poll</mat-icon>
+            <a href="#"><small>System Maintenance</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+          <!--Help-->
+          <li class="nav-link" style="--i: .85s">
+            <mat-icon color="white" class="danger white--icon text-gray-200">error</mat-icon>
+            <a href="#"><small>Help</small><i class="fas fa-caret-down"></i></a>
+            <mat-icon>arrow_drop_down</mat-icon>
+            <div class="dropdown">
+              <ul>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <li class="dropdown-link">
+                  <a href="#">Account Receivable <mat-icon>chevron_right</mat-icon></a>
+                  <div class="dropdown second">
+                    <ul>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Shipment Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Sales Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Over the Counter Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Pro Forma Invoice
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Credit
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoices
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Invoice Posting
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Batch Receipts
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <li class="dropdown-link">
+                        <a href="#">
+                          Customer Statements
+                          <mat-icon>launch</mat-icon>
+                        </a>
+                      </li>
+                      <div class="arrow"></div>
+                    </ul>
+                  </div>
+                </li>
+                <div class="arrow"></div>
+              </ul>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="hamburger-menu-container">
+      <div class="hamburger-menu">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+

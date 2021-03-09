@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "http://erp.test/api/customers",
+    "secure": false
+  }
+}

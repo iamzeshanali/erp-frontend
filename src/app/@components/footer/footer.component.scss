@@ -1,0 +1,10 @@
+.footer-custom{
+  display: flex;
+  justify-content: space-around;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+}
