@@ -52,12 +52,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./+user/user.module').then((m) => m.UserModule),
   },
-  /*OpenItemsModule*/
-  {
-    path: 'myView',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('@containers/MyView/open-items/open-items.module').then((m) => m.OpenItemsModule),
-  },
   {
     path: '',
     canActivate: [AuthGuard],

@@ -1,0 +1,131 @@
+
+
+.component {
+    margin-inline:20px;
+    background-color: #ffffff;
+    height: 295px;
+  }
+  .primaryHeader {
+    background-color: #3d4852;
+  }
+  .text-white {
+    color:white;
+  }
+  .remove-button {
+    background-color: white;
+    color: black;
+    padding-inline: 11px;
+    border-radius: 5px;
+    border: 1px solid rgb(235, 230, 230);
+    margin-inline: 10px;
+  }
+  .action-button {
+    padding-top: 6px;
+      background-color: white;
+      color: black;
+      padding-inline: 6px;
+      border-radius: 5px;
+      border: 1px solid #ebe6e6;
+      margin-inline: 10px;
+      cursor: pointer;
+  }
+  mat-icon {
+    color:#3d4852;
+  }
+  .secondary-header {
+    padding-left:20px;
+    padding-top: 8px;
+    height: 350px;
+    font-size: 14px;
+  }
+  
+  .form-card {
+    max-width: 800px;
+  }
+  
+  .input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+  }
+
+  input {
+    background-color: #f3f6fa;
+  }
+  
+  .icon {
+    background: #ffffff;
+    color: #374151;
+    text-align: center;
+    border: 1px solid rgb(204, 197, 197);
+  }
+  mat-tab-group {
+      z-index: 1;
+  }
+  form.example-form div.float-container div.float-child2 section input {
+    height: 20px;
+    width: 300px;
+    border: 1px solid rgb(204, 197, 197);
+    padding-left: 5px;
+  }
+  form.example-form div.float-container div.float-child2 section select {
+    height: 20px;
+    width: 300px;
+    border: 1px solid rgb(204, 197, 197);
+    padding-left: 5px;
+  }
+  form.example-form div.float-container div.float-child3 div.float-child2 section select {
+    height: 20px;
+    width: 300px;
+    border: 1px solid rgb(204, 197, 197);
+    padding-left: 5px;
+  }
+  
+  
+  
+  .float-child1 {
+    padding-left: 10px;
+    padding-right: 8px;
+    float: left;
+  }
+  .float-child2 {
+    width: 21%;
+    float: left;
+  }
+  
+  .float-child3 {
+    width: 68%;
+    float: left;
+    padding-left: 30px;
+  }
+  form.example-form div.float-container div.float-child3 section select {
+    height: 20px;
+    width: 300px;
+    border: 1px solid rgb(204, 197, 197);
+    padding-left: 5px;
+  }
+  section {
+    padding-bottom: 8px;
+  }
+  
+  .child-wrapper {
+    padding-top:20px;
+    border: 1px solid #d1d6db;
+    height: 200px;
+  }
+  ::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active{
+    min-width: 0!important;
+    padding-block: 3px!important;
+    margin: 3px!important;
+    height: 20px !important;
+   }
+  
+  
+   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-style: italic;
+  }
+  .mat-tab-label {
+    padding: 0 10px;
+  }
+  
+  

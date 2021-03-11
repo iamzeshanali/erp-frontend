@@ -30,10 +30,17 @@ import {MatCardModule} from "@angular/material/card";
 import {MatTabsModule} from "@angular/material/tabs";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatTooltipModule } from '@angular/material/tooltip';
+import { PurchaseOrderFormComponent } from './financial/purchase-order-form/purchase-order-form.component';
+import { PurchaseOrderReceivingFormComponent } from './financial/purchase-order-receiving-form/purchase-order-receiving-form.component';
+import { ReceiptFormComponent } from './financial/receipt-form/receipt-form.component';
+import { SalesInvoiceFormComponent } from './financial/sales-invoice-form/sales-invoice-form.component';
+import { SalesInvoiceDetailFormComponent } from './financial/sales-invoice-detail-form/sales-invoice-detail-form.component';
+import { TaxClassFormComponent } from './financial/tax-class-form/tax-class-form.component';
+import { PurchaseOrderDetailFormComponent } from './financial/purchase-order-detail-form/purchase-order-detail-form.component';
 
 
 @NgModule({
-  declarations: [BrandsComponent,CustomersComponent,PreferredVendorComponent,ProductComponent,SalesRepresentativeComponent, PaymentTermsComponent, PurchaseOrderComponent, PurchaseOrderDetailComponent, PurchaseOrderReceivingComponent, ReceiptComponent, SalesInvoiceComponent, SalesInvoiceDetailComponent, TaxClassComponent, CasePackComponent, FamilyComponent, GroupComponent, UomComponent, ShipmentsComponent, WarehouseComponent, PaymentTermsFormComponent],
+  declarations: [BrandsComponent,CustomersComponent,PreferredVendorComponent,ProductComponent,SalesRepresentativeComponent, PaymentTermsComponent, PurchaseOrderComponent, PurchaseOrderDetailComponent, PurchaseOrderReceivingComponent, ReceiptComponent, SalesInvoiceComponent, SalesInvoiceDetailComponent, TaxClassComponent, CasePackComponent, FamilyComponent, GroupComponent, UomComponent, ShipmentsComponent, WarehouseComponent, PaymentTermsFormComponent, PurchaseOrderFormComponent, PurchaseOrderReceivingFormComponent, ReceiptFormComponent, SalesInvoiceFormComponent, SalesInvoiceDetailFormComponent, TaxClassFormComponent, PurchaseOrderDetailFormComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

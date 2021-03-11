@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { DtableComponent } from '@app/@components/dynamic/dtable/dtable.component';
 import { ApiService } from '@app/@services/api.service';
 @Component({
   selector: 'app-sales-invoice-detail',
@@ -13,10 +14,15 @@ export class SalesInvoiceDetailComponent  {
   dataSource: any;
   testData: any;
   moduleName:any = "Sales Invoice Detail";
+  entityName = 'salesInvoiceDetail'
+  
+  @ViewChild(DtableComponent) parentPaginator!: DtableComponent;
+  @ViewChild(DtableComponent) parentSort!: DtableComponent;
+
   constructor( private dataService:ApiService)
   {
     this.tableData = new MatTableDataSource<object>();
-    this.dataService.getSalesInvoiceDetailsAPI().subscribe( data =>
+    this.dataService.getAPI(this.entityName).subscribe( data =>
     {
       this.dataSource = data;
       this.testData = data;
@@ -25,7 +31,8 @@ export class SalesInvoiceDetailComponent  {
 
       this.tableData = new MatTableDataSource<object>(this.dataSource);
 
-
+      this.tableData.paginator =  this.parentPaginator.paginator;
+      this.tableData.sort =  this.parentSort.sort;
     });
   }
 }

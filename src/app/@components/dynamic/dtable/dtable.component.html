@@ -1,5 +1,5 @@
 <div class="main">
-    <div class="header">
+    <div class="header" *ngIf="moduleTitle != 'salesInvoiceForm'">
       <nav
         class="container flex items-center justify-between h-full py-2 mx-auto center"
       >
@@ -38,7 +38,7 @@
   
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns; "
-            (click)="fetchRowDetails(row['code'])"
+            (click)="fetchRowDetails(row[displayedColumns[0]],routeTitle)"
         >
         </tr>
       </table>

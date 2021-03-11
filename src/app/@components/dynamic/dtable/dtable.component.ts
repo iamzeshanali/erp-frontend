@@ -12,13 +12,15 @@ import { ApiService } from '@app/@services/api.service';
   templateUrl: './dtable.component.html',
   styleUrls: ['./dtable.component.scss']
 })
-export class DtableComponent  implements AfterViewInit{
+export class DtableComponent {
 
   
   tableApiData : any;
   @Input() dataSource: any;
   @Input() displayedColumns: any[]=[];
   @Input() moduleTitle: any;
+  @Input() routeTitle: any;
+  @Input() primaryId: any;
   @Output() rowClicked: EventEmitter<any> = new EventEmitter<any>();
 
       @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -26,27 +28,17 @@ export class DtableComponent  implements AfterViewInit{
 
       constructor (private router: Router, private service: ApiService)
       {
-        
       }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-  
-  // ngAfterContentChecked() {
-  //   console.log(this.paginator); 
-  // }
-  
-  
+    
   applyFilter(e: Event) {
     let  filterValue = (<HTMLInputElement>e.target).value
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-  fetchRowDetails(id:any)
+  fetchRowDetails(id:any, entity: any)
   {
-    this.router.navigate(['/financial/paymentTerms/form',id]);
+    this.router.navigate([entity,id]);
   }
 
 }

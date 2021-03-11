@@ -10,7 +10,8 @@ import { ApiService } from '@app/@services/api.service';
 export class PaymentTermsFormComponent implements OnInit {
 
   isBlankActive = false;
-  moduleName = "Payment Terms";
+  moduleName = "payment Terms";
+  entityName = 'paymentTerms';
   targent_prop = "";
   paymentTermsData: any;
   editRoute : boolean = false;
@@ -35,29 +36,31 @@ export class PaymentTermsFormComponent implements OnInit {
       }
       /*CALLING TO API OF SHOW-METHOD BY ID {PaymentTerm::code}*/
 
-      /*this.ApiService.showPaymentTerms(ROUTE_ID).subscribe(data => {
-        this.paymentTermsData = data;
-        console.log(this.paymentTermsData);
-        // @ts-ignore
-        const termData = this.paymentTermsData.find(x => x.code === ROUTE_ID);
-        this.formData.patchValue({
-          code: termData.code,
-          status: termData.status,
-          description: termData.description,
-        })
-      })*/
+      // this.ApiService.showPaymentTerms(ROUTE_ID).subscribe(data => {
+      //   this.paymentTermsData = data;
+      //   console.log(this.paymentTermsData);
+
+      //   this.formData.patchValue({
+      //     code: this.paymentTermsData.code,
+      //     status: this.paymentTermsData.status,
+      //     description: this.paymentTermsData.description,
+      //   })
+      // });
 
       /*EXTRACTING THE WHOLE DATA AND THEN FILTERING*/
-      this.ApiService.getPaymentTermsFromAPI().subscribe( data => {
+      this.ApiService.getAPI(this.entityName).subscribe( data => {
         this.paymentTermsData = data;
         // @ts-ignore
         const termData = this.paymentTermsData.find(x => x.code === ROUTE_ID);
+        this.formData.get('status')!.setValue(termData.status);
         this.formData.patchValue({
           code: termData.code,
-          status: termData.status,
+          status: termData.Status,
           description: termData.description,
         })
+        
       })
+
     });
   }
 
@@ -81,7 +84,8 @@ export class PaymentTermsFormComponent implements OnInit {
     this.route.paramMap.subscribe( params => {
       const ROUTE_ID = params.get('id');
       if (ROUTE_ID) {
-         this.ApiService.editPaymentTerms(JSON.stringify(this.formData.value), ROUTE_ID)
+        console.log()
+         this.ApiService.editAPI(JSON.stringify(this.formData.value), ROUTE_ID, this.entityName)
          .subscribe((res) => {
           if(res.hasOwnProperty('success')){
             this.success = true;
@@ -89,7 +93,18 @@ export class PaymentTermsFormComponent implements OnInit {
           }
          });
       }else if(!ROUTE_ID){
-        this.ApiService.storePaymentTermsFromAPI(JSON.stringify(this.formData.value));
+        this.ApiService.storeAPI(JSON.stringify(this.formData.value), this.entityName)
+        .subscribe((res) => {
+          if(res.hasOwnProperty('success')){
+            this.success = true;
+            this.formData.reset({
+              code: '',
+              status: '',
+              description: '',
+            });
+          }
+        });
+        
       }
     });
     
@@ -97,8 +112,15 @@ export class PaymentTermsFormComponent implements OnInit {
   DeletePaymentTerm(){
     this.route.paramMap.subscribe( params => {
       const ROUTE_ID = params.get('id');
+      
       if (ROUTE_ID) {
-        this.ApiService.deletePaymentTerms(ROUTE_ID);
+        this.ApiService.deleteAPI(ROUTE_ID, this.entityName)
+        .subscribe((res) => {
+          if(res.hasOwnProperty('success')){
+            this.success = true;
+            this.router.navigate(['financial/paymentTerms/']);
+          }
+        });
       }
     });
   }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { DtableComponent } from '@app/@components/dynamic/dtable/dtable.component';
 import { ApiService } from '@app/@services/api.service';
 @Component({
   selector: 'app-payment-terms',
@@ -9,6 +10,7 @@ import { ApiService } from '@app/@services/api.service';
 export class PaymentTermsComponent  {
 
   moduleName:any ="Payment Terms"
+  entityName = '/financial/paymentTerms/form';
   tableData: any;
   tableColumns: any[] = [];
   dataSource: any;
@@ -16,21 +18,27 @@ export class PaymentTermsComponent  {
 
   rowClickedData:any;
 
+  @ViewChild(DtableComponent) parentPaginator!: DtableComponent;
+  @ViewChild(DtableComponent) parentSort!: DtableComponent;
+
+
   constructor( private dataService:ApiService)
   {
     this.tableData = new MatTableDataSource<object>();
-    this.dataService.getPaymentTermsFromAPI().subscribe( data =>
+    this.dataService.getAPI('paymentTerms').subscribe( data =>
     {
       this.dataSource = data;
       this.testData = data;
 
       this.tableColumns = Object.keys(this.dataSource[0]);
-
+      
       this.tableData = new MatTableDataSource<object>(this.dataSource);
-
+      this.tableData.paginator =  this.parentPaginator.paginator;
+      this.tableData.sort =  this.parentSort.sort;
 
     });
   }
+  
   parentEventHandler(valueEmitter : any)
   {
     this.rowClickedData = valueEmitter;

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { DtableComponent } from '@app/@components/dynamic/dtable/dtable.component';
 import { ApiService } from '@app/@services/api.service';
 @Component({
   selector: 'app-sales-representative',
@@ -12,10 +13,15 @@ export class SalesRepresentativeComponent {
   dataSource: any;
   testData: any;
   moduleName:any = "Sales Representative";
+  entityName = 'salesRepresentative'
+
+  @ViewChild(DtableComponent) parentPaginator!: DtableComponent;
+  @ViewChild(DtableComponent) parentSort!: DtableComponent;
+
   constructor( private dataService:ApiService) 
   {
     this.tableData = new MatTableDataSource<object>();
-    this.dataService.getSalesRepresentativesFromAPI().subscribe( data => 
+    this.dataService.getAPI(this.entityName).subscribe( data => 
     {
       this.dataSource = data;
       this.testData = data;
@@ -24,6 +30,8 @@ export class SalesRepresentativeComponent {
    
       this.tableData = new MatTableDataSource<object>(this.dataSource);
      
+      this.tableData.paginator =  this.parentPaginator.paginator;
+      this.tableData.sort =  this.parentSort.sort;
       
     });
   }

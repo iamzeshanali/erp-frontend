@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { DtableComponent } from '@app/@components/dynamic/dtable/dtable.component';
 import { ApiService } from '@app/@services/api.service';
 @Component({
   selector: 'app-family',
@@ -13,10 +14,14 @@ export class FamilyComponent  {
   dataSource: any;
   testData: any;
   moduleName:any = "Family";
+  entityName = 'family'
+
+  @ViewChild(DtableComponent) parentPaginator!: DtableComponent;
+  @ViewChild(DtableComponent) parentSort!: DtableComponent;
   constructor( private dataService:ApiService) 
   {
     this.tableData = new MatTableDataSource<object>();
-    this.dataService.getFamilyFromAPI().subscribe( data => 
+    this.dataService.getAPI(this.entityName).subscribe( data => 
     {
       this.dataSource = data;
       this.testData = data;
@@ -24,7 +29,8 @@ export class FamilyComponent  {
       this.tableColumns = Object.keys(this.dataSource[0]);
    
       this.tableData = new MatTableDataSource<object>(this.dataSource);
-     
+      this.tableData.paginator =  this.parentPaginator.paginator;
+      this.tableData.sort =  this.parentSort.sort;
       
     });
   }
