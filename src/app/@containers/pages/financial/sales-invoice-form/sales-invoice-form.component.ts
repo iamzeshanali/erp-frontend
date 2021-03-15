@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DtableComponent } from '@app/@components/dynamic/dtable/dtable.component';
 import { ApiService } from '@app/@services/api.service';
+import { NotificationsService } from 'angular2-notifications';
 @Component({
   selector: 'app-sales-invoice-form',
   templateUrl: './sales-invoice-form.component.html',
@@ -53,7 +54,7 @@ export class SalesInvoiceFormComponent implements OnInit {
   @ViewChild(DtableComponent) parentPaginator!: DtableComponent;
   @ViewChild(DtableComponent) parentSort!: DtableComponent;
 
-  constructor(private ApiService:ApiService, private route: ActivatedRoute, private router: Router) {
+  constructor(private ApiService:ApiService, private route: ActivatedRoute, private router: Router,private notificationService: NotificationsService) {
     this.route.paramMap.subscribe( params => {
       const ROUTE_ID = params.get('id');
       if(ROUTE_ID)
@@ -119,7 +120,8 @@ export class SalesInvoiceFormComponent implements OnInit {
     });
   }
 
-   setBlankActive(){
+   setBlankActive()
+   {
     if(this.isBlankActive){
       this.isBlankActive = false;
       this.targent_prop = "";
@@ -129,38 +131,42 @@ export class SalesInvoiceFormComponent implements OnInit {
     }
   }
   
-  formData = new FormGroup({
-    customer: new FormControl(''),
-    status: new FormControl(''),
-    date: new FormControl(''),
-    invoiceNumber: new FormControl(''),
+  formData = new FormGroup
+  ({
+    customer: new FormControl('', Validators.required),
+    status: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required),
+    invoiceNumber: new FormControl('', Validators.required),
 
-    paymentTerm: new FormControl(''),
-    profitinPercentage: new FormControl(''),
-    profitinDollars: new FormControl(''),
+    paymentTerm: new FormControl('', Validators.required),
+    profitinPercentage: new FormControl('', Validators.required),
+    profitinDollars: new FormControl('', Validators.required),
 
-    total: new FormControl(''),
-    discountinPercentage: new FormControl(''),
-    discountinDollars: new FormControl(''),
-    totalAfterDiscount: new FormControl(''),
-    totalTax: new FormControl(''),
-    finalPrice: new FormControl(''),
+    total: new FormControl('', Validators.required),
+    discountinPercentage: new FormControl('', Validators.required),
+    discountinDollars: new FormControl('', Validators.required),
+    totalAfterDiscount: new FormControl('', Validators.required),
+    totalTax: new FormControl('', Validators.required),
+    finalPrice: new FormControl('', Validators.required),
 
-    shippingAddress: new FormControl(''),
-    shippingAddress2: new FormControl(''),
-    shippingState: new FormControl(''),
-    shippingCity: new FormControl(''),
-    shippingCountry: new FormControl(''),
-    shippingZip: new FormControl(''),
-    shippingCode: new FormControl(''),
+    shippingAddress: new FormControl('', Validators.required),
+    shippingAddress2: new FormControl('', Validators.required),
+    shippingState: new FormControl('', Validators.required),
+    shippingCity: new FormControl('', Validators.required),
+    shippingCountry: new FormControl('', Validators.required),
+    shippingZip: new FormControl('', Validators.required),
+    shippingCode: new FormControl('', Validators.required),
 
-    salesRepresentative: new FormControl(''),
-    warehouse: new FormControl(''),
+    salesRepresentative: new FormControl('', Validators.required),
+    warehouse: new FormControl('', Validators.required),
 
   });
 
-  onSubmit(){
-   console.log(this.formData.value);
+  onSubmit()
+  {
+   
+   if(this.formData.valid)
+   {
     this.route.paramMap.subscribe( params => {
       const ROUTE_ID = params.get('id');
       if (ROUTE_ID) {
@@ -169,27 +175,66 @@ export class SalesInvoiceFormComponent implements OnInit {
          .subscribe((res) => {
           if(res.hasOwnProperty('success')){
             this.success = true;
+            this.notificationService.success('Success', 'Sales Invoice Updated.');
             this.router.navigate(['financial/paymentTerms/']);
+          }else{
+            this.notificationService.error('Error', 'Server Error Occur.');
           }
          });
       }else if(!ROUTE_ID){
+        console.error(this.formData.value);
         this.ApiService.storeAPI(JSON.stringify(this.formData.value), this.entityName)
         .subscribe((res) => {
           if(res.hasOwnProperty('success')){
             this.success = true;
+            this.notificationService.success('Success', 'Sales Invoice Added.');
             this.formData.reset({
-              code: '',
+              customer: '',
               status: '',
-              description: '',
+              date: '',
+              invoiceNumber: '',
+
+              paymentTerm: '',
+              profitinPercentage: '',
+              profitinDollars: '',
+
+              total: '',
+              discountinPercentage: '',
+              discountinDollars: '',
+              totalAfterDiscount: '',
+              totalTax: '',
+              finalPrice: '',
+
+              shippingAddress: '',
+              shippingAddress2: '',
+              shippingState: '',
+              shippingCity: '',
+              shippingCountry: '',
+              shippingZip: '',
+              shippingCode: '',
+
+              salesRepresentative: '',
+              warehouse: ''
             });
+          }else{
+            this.notificationService.error('Error', 'Server Error Occured.');
           }
         });
         
       }
     });
     
+   }else if(this.formData.invalid)
+   {
+    this.notificationService.error('Error', 'You should review Sales Invoice.');
+   }
+   
+    
+    
   }
-  Delete(){
+
+  Delete()
+  {
     this.route.paramMap.subscribe( params => {
       const ROUTE_ID = params.get('id');
       
@@ -204,4 +249,5 @@ export class SalesInvoiceFormComponent implements OnInit {
       }
     });
   }
+
 }

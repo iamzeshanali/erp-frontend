@@ -38,7 +38,7 @@ export class DtableComponent {
   }
   fetchRowDetails(id:any, entity: any)
   {
-    this.router.navigate([entity,id]);
+    this.router.navigate([+entity,id]);
   }
 
 }

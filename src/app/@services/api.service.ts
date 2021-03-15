@@ -19,7 +19,7 @@ export class ApiService {
         const url = 'http://erp.test/api/'+entity;
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-        return this.httpClient.post('http://erp.test/api/paymentTerms',data, {headers:headers});
+        return this.httpClient.post(url,data, {headers:headers});
       }
       // READ -- GET
       showAPI(id : any, entity: any){

@@ -23,6 +23,7 @@ import {DynamicModule} from "@components/dynamic/dynamic.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {PagesModule} from "@containers/pages/pages.module";
+import { SimpleNotificationsModule } from 'angular2-notifications';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -43,6 +44,7 @@ import {PagesModule} from "@containers/pages/pages.module";
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [
     {

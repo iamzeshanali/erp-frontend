@@ -54,6 +54,12 @@
     border: 1px solid rgb(204, 197, 197);
   }
   
+  form.example-form div.float-container div.float-child2 section input.ng-invalid.ng-touched {
+    border-color: red;
+  }
+  form.example-form div.float-container div.float-child2 section select.ng-invalid.ng-touched {
+    border-color: red;
+  }
   form.example-form div.float-container div.float-child2 section input {
     height: 20px;
     width: 300px;

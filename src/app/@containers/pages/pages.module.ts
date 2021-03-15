@@ -37,6 +37,7 @@ import { SalesInvoiceFormComponent } from './financial/sales-invoice-form/sales-
 import { SalesInvoiceDetailFormComponent } from './financial/sales-invoice-detail-form/sales-invoice-detail-form.component';
 import { TaxClassFormComponent } from './financial/tax-class-form/tax-class-form.component';
 import { PurchaseOrderDetailFormComponent } from './financial/purchase-order-detail-form/purchase-order-detail-form.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 
 @NgModule({
@@ -52,7 +53,16 @@ import { PurchaseOrderDetailFormComponent } from './financial/purchase-order-det
     MatTabsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    SimpleNotificationsModule.forRoot(
+      {
+        position: ["top","right"],
+        timeOut: 3000,
+        showProgressBar: false,
+        pauseOnHover: true,
+        clickToClose: true,
+      }
+    ),
 
 
   ]

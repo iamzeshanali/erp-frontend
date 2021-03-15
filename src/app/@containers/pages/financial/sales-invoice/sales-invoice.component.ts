@@ -28,9 +28,8 @@ export class SalesInvoiceComponent {
       this.testData = data;
 
       this.tableColumns = Object.keys(this.dataSource[0]);
-
       this.tableData = new MatTableDataSource<object>(this.dataSource);
-
+      
       this.tableData.paginator =  this.parentPaginator.paginator;
       this.tableData.sort =  this.parentSort.sort;
 
