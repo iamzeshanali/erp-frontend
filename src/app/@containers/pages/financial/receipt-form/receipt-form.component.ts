@@ -15,7 +15,7 @@ export class ReceiptFormComponent implements OnInit {
   moduleName = "payment Terms";
   entityName = 'receipt';
   targent_prop = "";
-  paymentTermsData: any;
+  fetchedData: any;
   customersData: any;
   editRoute : boolean = false;
   response: any;
@@ -43,28 +43,34 @@ export class ReceiptFormComponent implements OnInit {
   {
     this.route.paramMap.subscribe( params => {
       const ROUTE_ID = params.get('id');
+
       this.ApiService.getAPI(this.entityName).subscribe( data => {
-        this.paymentTermsData = data;
+        if(data.hasOwnProperty('error')){
+          this.invoiceNumber = 1;
+          this.receiptNumber = "INV-"+this.invoiceNumber;
+        }else{
+          this.fetchedData = data;
+          this.invoiceNumber = this.fetchedData.length+1;
+          this.receiptNumber = "INV-"+this.invoiceNumber;
+        }
         
-        this.invoiceNumber = this.paymentTermsData.length+1;
-        this.receiptNumber = "INV-"+this.invoiceNumber;
       
         if(ROUTE_ID)
       {
         this.editRoute = true;
         /*EXTRACTING THE WHOLE DATA AND THEN FILTERING*/
         // @ts-ignore
-        const termData = this.paymentTermsData.find(x => x.code === ROUTE_ID);
+        const termData = this.fetchedData.find(x => x.Number === ROUTE_ID);
        
         this.formData.patchValue({
-          receiptNumber: termData.status,
-          customer: termData.status,
-          status: termData.status,
-          date: termData.status,
-          cash: termData.status,
-          totalReceived: termData.status,
-          amountDue: termData.status,
-          balanceDue: termData.status,
+          receiptNumber: termData.Number,
+          customer: termData.Customer,
+          status: termData.Status,
+          date: termData.Date,
+          cash: termData.Cash,
+          totalReceived: termData.TotalReceived,
+          amountDue: termData.AmountDue,
+          balanceDue: termData.BalanceDue,
         });
       }else{
         this.formData.patchValue({
@@ -73,39 +79,20 @@ export class ReceiptFormComponent implements OnInit {
       }
         
       });
-      if(ROUTE_ID)
-      {
-        this.editRoute = true;
-        /*EXTRACTING THE WHOLE DATA AND THEN FILTERING*/
-        this.ApiService.getAPI(this.entityName).subscribe( data => {
-          this.paymentTermsData = data;
-          console.log(this.paymentTermsData.length);
-          // @ts-ignore
-          const termData = this.paymentTermsData.find(x => x.code === ROUTE_ID);
-         
-          this.formData.patchValue({
-            receiptNumber: termData.status,
-            customer: termData.status,
-            status: termData.status,
-            date: termData.status,
-            cash: termData.status,
-            totalReceived: termData.status,
-            amountDue: termData.status,
-            balanceDue: termData.status,
-          });
-          
-        });
-      }
       /*CALLING TO API OF SHOW-METHOD BY ID {PaymentTerm::code}*/
 
-      // this.ApiService.showPaymentTerms(ROUTE_ID).subscribe(data => {
-      //   this.paymentTermsData = data;
-      //   console.log(this.paymentTermsData);
+      // this.ApiService.showAPI(ROUTE_ID,'receipt').subscribe(data => {
+      //   this.fetchedData = data;
 
       //   this.formData.patchValue({
-      //     code: this.paymentTermsData.code,
-      //     status: this.paymentTermsData.status,
-      //     description: this.paymentTermsData.description,
+      //     receiptNumber: this.fetchedData[0].Number,
+      //     customer: this.fetchedData[0].Customer,
+      //     status: this.fetchedData[0].Status,
+      //     date: this.fetchedData[0].Date,
+      //     cash: this.fetchedData[0].Cash,
+      //     totalReceived: this.fetchedData[0].TotalReceived,
+      //     amountDue: this.fetchedData[0].AmountDue,
+      //     balanceDue: this.fetchedData[0].BalanceDue,
       //   })
       // });
 
@@ -145,13 +132,11 @@ export class ReceiptFormComponent implements OnInit {
       this.route.paramMap.subscribe( params => {
         const ROUTE_ID = params.get('id');
         if (ROUTE_ID) {
-          console.log()
            this.ApiService.editAPI(JSON.stringify(this.formData.value), ROUTE_ID, this.entityName)
            .subscribe((res) => {
             if(res.hasOwnProperty('success')){
               this.success = true;
               this.notificationService.success('Success', 'Sales Invoice Updated.');
-              this.router.navigate(['financial/paymentTerms/']);
             }else{
               this.notificationService.error('Error', 'Server Error Occur.');
             }
@@ -159,7 +144,6 @@ export class ReceiptFormComponent implements OnInit {
         }else if(!ROUTE_ID){
           this.ApiService.storeAPI(JSON.stringify(this.formData.value), "receipt")
           .subscribe((res) => {
-            console.log(res);
             if(res.hasOwnProperty('success')){
               this.success = true;
               this.notificationService.success('Success', 'Sales Invoice Added.');
@@ -193,7 +177,7 @@ export class ReceiptFormComponent implements OnInit {
         .subscribe((res) => {
           if(res.hasOwnProperty('success')){
             this.success = true;
-            this.router.navigate(['financial/paymentTerms/']);
+            this.router.navigate(['financial/receipt/']);
           }
         });
       }

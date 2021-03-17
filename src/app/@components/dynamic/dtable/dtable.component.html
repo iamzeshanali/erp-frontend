@@ -26,8 +26,7 @@
         </mat-form-field>
       </form>
     </div>
-    <div class="table-content">
-  
+    <div class="table-content" *ngIf="this.dataSource != 0">
       <div class="example-container mat-elevation-z8" >
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
   
@@ -44,6 +43,18 @@
       </table>
       </div>
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+    
+    <div class="h-full" *ngIf="this.dataSource==0">
+      <div class="container flex items-center justify-center h-full">
+        <div class="mt-20 text-center md:max-w-xl">
+          <h1 i18n class="mb-4">👋 No record exist for Receipts.</h1>
+          <p i18n class="mb-12 text-xl">⚒️ Start Adding Receipt. ⚒️</p>
+          <a [routerLink]="['/financial/receipt/form']" class="btn btn-primary">
+            Go to Receipts Form
+          </a>
+        </div>
+      </div>
     </div>
   
   </div>

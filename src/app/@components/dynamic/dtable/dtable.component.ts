@@ -28,6 +28,7 @@ export class DtableComponent {
 
       constructor (private router: Router, private service: ApiService)
       {
+        
       }
     
   applyFilter(e: Event) {
@@ -38,7 +39,7 @@ export class DtableComponent {
   }
   fetchRowDetails(id:any, entity: any)
   {
-    this.router.navigate([+entity,id]);
+    this.router.navigate([entity+'/form',id]);
   }
 
 }

@@ -27,20 +27,59 @@ import { ReceiptFormComponent } from './financial/receipt-form/receipt-form.comp
 import { SalesInvoiceFormComponent } from './financial/sales-invoice-form/sales-invoice-form.component';
 import { SalesInvoiceDetailFormComponent } from './financial/sales-invoice-detail-form/sales-invoice-detail-form.component';
 import { TaxClassFormComponent } from './financial/tax-class-form/tax-class-form.component';
+import { CasePackFormComponent } from './inventory/case-pack-form/case-pack-form.component';
+import { FamilyFormComponent } from './inventory/family-form/family-form.component';
+import { GroupFormComponent } from './inventory/group-form/group-form.component';
+import { UomFormComponent } from './inventory/uom-form/uom-form.component';
+import { ShipmentsFormComponent } from './warehouse/shipments-form/shipments-form.component';
+import { WarehouseFormComponent } from './warehouse/warehouse-form/warehouse-form.component';
+import { BrandsFormComponent } from './sales/brands-form/brands-form.component';
+import { CustomersFormComponent } from './sales/customers-form/customers-form.component';
+import { PreferredVendorFormComponent } from './sales/preferred-vendor-form/preferred-vendor-form.component';
+import { ProductFormComponent } from './sales/product-form/product-form.component';
+import { SalesRepresentativeFormComponent } from './sales/sales-representative-form/sales-representative-form.component';
 
 const routes: Routes = [
   /*SALES ROUTE*/
-  { path: 'sales/brands', component: BrandsComponent},
-  { path: 'sales/customers', component: CustomersComponent},
-  { path: 'sales/preferredVendor', component: PreferredVendorComponent},
-  { path: 'sales/products', component: ProductComponent},
-  { path: 'sales/salesRepresentative', component: SalesRepresentativeComponent},
+    // BRANDS
+    { path: 'sales/brands', component: BrandsComponent},
+    { path: 'sales/brands/form', component: BrandsFormComponent},
+    { path: 'sales/brands/form/:id', component: BrandsFormComponent},
+    // CUSTOMERS
+    { path: 'sales/customers', component: CustomersComponent},
+    { path: 'sales/customers/form', component: CustomersFormComponent},
+    { path: 'sales/customers/form/:id', component: CustomersFormComponent},
+    // PREFERRED_VENDOR
+    { path: 'sales/preferredVendor', component: PreferredVendorComponent},
+    { path: 'sales/preferredVendor/form', component: PreferredVendorFormComponent},
+    { path: 'sales/preferredVendor/form/:id', component: PreferredVendorFormComponent},
+    // PRODUCTS
+    { path: 'sales/products', component: ProductComponent},
+    { path: 'sales/products/form', component: ProductFormComponent},
+    { path: 'sales/products/form/:id', component: ProductFormComponent},
+    // SAELS_REPRESENTATIVE
+    { path: 'sales/salesRepresentative', component: SalesRepresentativeComponent},
+    { path: 'sales/salesRepresentative/form', component: SalesRepresentativeFormComponent},
+    { path: 'sales/salesRepresentative/form/:id', component: SalesRepresentativeFormComponent},
 
   /*INVENTORY ROUTES*/
-  { path: 'inventory/casePack', component: CasePackComponent},
-  { path: 'inventory/family', component: FamilyComponent},
-  { path: 'inventory/group', component: GroupComponent},
-  { path: 'inventory/uom', component: UomComponent},
+    /*CASE PACK*/
+    { path: 'inventory/casePack', component: CasePackComponent},
+    { path: 'inventory/casePack/form', component: CasePackFormComponent},
+    { path: 'inventory/casePack/form/:id', component: CasePackFormComponent},
+    /*FAMILY*/
+    { path: 'inventory/family', component: FamilyComponent},
+    { path: 'inventory/family/form', component: FamilyFormComponent},
+    { path: 'inventory/family/form/:id', component: FamilyFormComponent},
+    /*GROUP*/
+    { path: 'inventory/group', component: GroupComponent},
+    { path: 'inventory/group/form', component: GroupFormComponent},
+    { path: 'inventory/group/form/:id', component: GroupFormComponent},
+    /*UOM*/
+    { path: 'inventory/uom', component: UomComponent},
+    { path: 'inventory/uom/form', component: UomFormComponent},
+    { path: 'inventory/uom/form/:id', component: UomFormComponent},
+  
 
   /*FINANCIAL TERMS ROUTES*/
     // PAYMENT-TERMS
@@ -83,8 +122,14 @@ const routes: Routes = [
     { path: 'financial/taxClass/form/:id', component: TaxClassFormComponent},
 
   /*WAREHOUSE ROUTES*/
-  { path: 'warehouse/shipments', component: ShipmentsComponent},
-  { path: 'warehouse/warehouse', component: WarehouseComponent}
+    // SHIPMENTS
+    { path: 'warehouse/shipments', component: ShipmentsComponent},
+    { path: 'warehouse/shipments/form', component: ShipmentsFormComponent},
+    { path: 'warehouse/shipments/form/:id', component: ShipmentsFormComponent},
+    // WAREHOUSES
+    { path: 'warehouse/warehouse', component: WarehouseComponent},
+    { path: 'warehouse/warehouse/form', component: WarehouseFormComponent},
+    { path: 'warehouse/warehouse/form/:id', component: WarehouseFormComponent}
 ];
 
 @NgModule({

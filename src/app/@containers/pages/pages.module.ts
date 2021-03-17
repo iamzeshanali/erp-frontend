@@ -38,10 +38,21 @@ import { SalesInvoiceDetailFormComponent } from './financial/sales-invoice-detai
 import { TaxClassFormComponent } from './financial/tax-class-form/tax-class-form.component';
 import { PurchaseOrderDetailFormComponent } from './financial/purchase-order-detail-form/purchase-order-detail-form.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
+import { CasePackFormComponent } from './inventory/case-pack-form/case-pack-form.component';
+import { FamilyFormComponent } from './inventory/family-form/family-form.component';
+import { GroupFormComponent } from './inventory/group-form/group-form.component';
+import { UomFormComponent } from './inventory/uom-form/uom-form.component';
+import { ShipmentsFormComponent } from './warehouse/shipments-form/shipments-form.component';
+import { WarehouseFormComponent } from './warehouse/warehouse-form/warehouse-form.component';
+import { BrandsFormComponent } from './sales/brands-form/brands-form.component';
+import { CustomersFormComponent } from './sales/customers-form/customers-form.component';
+import { PreferredVendorFormComponent } from './sales/preferred-vendor-form/preferred-vendor-form.component';
+import { ProductFormComponent } from './sales/product-form/product-form.component';
+import { SalesRepresentativeFormComponent } from './sales/sales-representative-form/sales-representative-form.component';
 
 
 @NgModule({
-  declarations: [BrandsComponent,CustomersComponent,PreferredVendorComponent,ProductComponent,SalesRepresentativeComponent, PaymentTermsComponent, PurchaseOrderComponent, PurchaseOrderDetailComponent, PurchaseOrderReceivingComponent, ReceiptComponent, SalesInvoiceComponent, SalesInvoiceDetailComponent, TaxClassComponent, CasePackComponent, FamilyComponent, GroupComponent, UomComponent, ShipmentsComponent, WarehouseComponent, PaymentTermsFormComponent, PurchaseOrderFormComponent, PurchaseOrderReceivingFormComponent, ReceiptFormComponent, SalesInvoiceFormComponent, SalesInvoiceDetailFormComponent, TaxClassFormComponent, PurchaseOrderDetailFormComponent],
+  declarations: [BrandsComponent,CustomersComponent,PreferredVendorComponent,ProductComponent,SalesRepresentativeComponent, PaymentTermsComponent, PurchaseOrderComponent, PurchaseOrderDetailComponent, PurchaseOrderReceivingComponent, ReceiptComponent, SalesInvoiceComponent, SalesInvoiceDetailComponent, TaxClassComponent, CasePackComponent, FamilyComponent, GroupComponent, UomComponent, ShipmentsComponent, WarehouseComponent, PaymentTermsFormComponent, PurchaseOrderFormComponent, PurchaseOrderReceivingFormComponent, ReceiptFormComponent, SalesInvoiceFormComponent, SalesInvoiceDetailFormComponent, TaxClassFormComponent, PurchaseOrderDetailFormComponent, CasePackFormComponent, FamilyFormComponent, GroupFormComponent, UomFormComponent, ShipmentsFormComponent, WarehouseFormComponent, BrandsFormComponent, CustomersFormComponent, PreferredVendorFormComponent, ProductFormComponent, SalesRepresentativeFormComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

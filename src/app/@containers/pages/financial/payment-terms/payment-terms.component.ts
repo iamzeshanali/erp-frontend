@@ -10,7 +10,7 @@ import { ApiService } from '@app/@services/api.service';
 export class PaymentTermsComponent  {
 
   moduleName:any ="Payment Terms"
-  entityName = '/financial/paymentTerms/form';
+  entityName = 'financial/paymentTerms';
   tableData: any;
   tableColumns: any[] = [];
   dataSource: any;

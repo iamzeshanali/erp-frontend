@@ -10,7 +10,7 @@ import { ApiService } from '@app/@services/api.service';
 export class WarehouseComponent {
 
   moduleName:any = "Warehouse";
-  entityName = 'warehouse'
+  entityName = 'warehouse/warehouse'
   tableData: any;
   tableColumns: any[] = [];
   dataSource: any;
@@ -22,17 +22,23 @@ export class WarehouseComponent {
   constructor( private dataService:ApiService) 
   {
     this.tableData = new MatTableDataSource<object>();
-    this.dataService.getAPI(this.entityName).subscribe( data => 
+    this.dataService.getAPI('warehouse').subscribe( data => 
     {
-      this.dataSource = data;
-      this.testData = data;
-      
-      this.tableColumns = Object.keys(this.dataSource[0]);
-   
-      this.tableData = new MatTableDataSource<object>(this.dataSource);
+      if(data.hasOwnProperty('error'))
+      {
+        this.tableData = 0;
+      }else{
+        this.dataSource = data;
+        this.testData = data;
+        
+        this.tableColumns = Object.keys(this.dataSource[0]);
      
-      this.tableData.paginator =  this.parentPaginator.paginator;
-      this.tableData.sort =  this.parentSort.sort;
+        this.tableData = new MatTableDataSource<object>(this.dataSource);
+       
+        this.tableData.paginator =  this.parentPaginator.paginator;
+        this.tableData.sort =  this.parentSort.sort;
+      }
+     
     });
   }
 
