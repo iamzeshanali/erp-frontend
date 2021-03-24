@@ -14,7 +14,7 @@ export class PreferredVendorComponent {
   dataSource: any;
   testData: any;
   moduleName:any = "Preferred Vendor";
-  entityName = 'preferredVendor'
+  entityName = 'sales/preferredVendor'
 
   @ViewChild(DtableComponent) parentPaginator!: DtableComponent;
   @ViewChild(DtableComponent) parentSort!: DtableComponent;
@@ -22,16 +22,22 @@ export class PreferredVendorComponent {
   constructor( private dataService:ApiService) 
   {
     this.tableData = new MatTableDataSource<object>();
-    this.dataService.getAPI(this.entityName).subscribe( data => 
+    this.dataService.getAPI('preferredVendor').subscribe( data => 
     {
-      this.dataSource = data;
-      this.testData = data;
+      if(data.hasOwnProperty('error'))
+      {
+        this.tableData = 0;
+      }else{
+        this.dataSource = data;
+        this.testData = data;
+        
+        this.tableColumns = Object.keys(this.dataSource[0]);
+     
+        this.tableData = new MatTableDataSource<object>(this.dataSource);
+        this.tableData.paginator =  this.parentPaginator.paginator;
+        this.tableData.sort =  this.parentSort.sort;
+      }
       
-      this.tableColumns = Object.keys(this.dataSource[0]);
-   
-      this.tableData = new MatTableDataSource<object>(this.dataSource);
-      this.tableData.paginator =  this.parentPaginator.paginator;
-      this.tableData.sort =  this.parentSort.sort;
       
     });
   }

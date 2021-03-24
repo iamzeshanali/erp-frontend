@@ -68,7 +68,7 @@
                             <section class="col col-lg-6 float-container">
                                 <input autocomplete="off" list="customers" class="form-control" formControlName="customer" type="text" placeholder="" name="customer">
                                 <datalist id="customers">
-                                    <option *ngFor="let customer of customersData" [value]="customer.Name">{{customer.id}} - {{customer.Name}}</option>
+                                    <option *ngFor="let customer of customersData" [value]="customer.customerNumber"> {{customer.customerName}}</option>
                                 </datalist>
                             </section>
                             <section class="col col-lg-6">
@@ -211,7 +211,7 @@
                                     <section class="col col-lg-6">
                                         <select name="shippingCode" id="status" formControlName="shippingCode">
                                             <option value="draft" disabled></option>
-                                            <option *ngFor="let shipments of warehouseShipmentsData" [value]="shipments.id">{{shipments.code | titlecase}}</option>
+                                            <option *ngFor="let shipments of warehouseShipmentsData" [value]="shipments.code">{{shipments.code | titlecase}}</option>
                                         </select>
                                     </section>
                                 </div>
@@ -232,13 +232,13 @@
                                     <section class="col col-lg-6">
                                         <input list="salesRepresentatives" autocomplete="off" class="form-control" formControlName="salesRepresentative" type="text" placeholder="" name="paymentTerm">
                                         <datalist id="salesRepresentatives">
-                                            <option *ngFor="let salesRepresentative of salesRepresentativeData" [value]="salesRepresentative.Name">{{salesRepresentative.Code}} - {{salesRepresentative.Name}}</option>
+                                            <option *ngFor="let salesRepresentative of salesRepresentativeData" [value]="salesRepresentative.code">{{salesRepresentative.code}} - {{salesRepresentative.name}}</option>
                                         </datalist>
                                     </section>
                                     <section class="col col-lg-6">
                                         <input list="warehouses"  autocomplete="off" class="form-control" formControlName="warehouse" type="text" placeholder="" name="paymentTerm">
                                         <datalist id="warehouses">
-                                            <option *ngFor="let warehouse of warehousesData" [value]="warehouse.Code">{{warehouse.Code}} - {{warehouse.Address}}</option>
+                                            <option *ngFor="let warehouse of warehousesData" [value]="warehouse.code">{{warehouse.code}} - {{warehouse.address}}</option>
                                         </datalist>
                                     </section>
                                 </div>

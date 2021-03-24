@@ -66,7 +66,7 @@
                             <section class="col col-lg-6 float-container">
                                 <input list="customers" autocomplete="off" class="form-control" formControlName="customer" type="text" placeholder=" Customer" name="customer">
                                 <datalist id="customers">
-                                    <option *ngFor="let customer of customersData" [value]="customer.Name">{{customer.id}} - {{customer.Name}}</option>
+                                    <option *ngFor="let customer of customersData" [value]="customer.customerName">{{customer.customerName}}</option>
                                 </datalist>
                             </section>
                             <section class="col col-lg-6">

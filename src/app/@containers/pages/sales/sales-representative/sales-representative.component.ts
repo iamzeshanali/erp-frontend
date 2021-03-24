@@ -13,7 +13,7 @@ export class SalesRepresentativeComponent {
   dataSource: any;
   testData: any;
   moduleName:any = "Sales Representative";
-  entityName = 'salesRepresentative'
+  entityName = 'sales/salesRepresentative'
 
   @ViewChild(DtableComponent) parentPaginator!: DtableComponent;
   @ViewChild(DtableComponent) parentSort!: DtableComponent;
@@ -21,17 +21,23 @@ export class SalesRepresentativeComponent {
   constructor( private dataService:ApiService) 
   {
     this.tableData = new MatTableDataSource<object>();
-    this.dataService.getAPI(this.entityName).subscribe( data => 
+    this.dataService.getAPI('salesRepresentative').subscribe( data => 
     {
-      this.dataSource = data;
-      this.testData = data;
-      
-      this.tableColumns = Object.keys(this.dataSource[0]);
-   
-      this.tableData = new MatTableDataSource<object>(this.dataSource);
+      if(data.hasOwnProperty('error'))
+      {
+        this.tableData = 0;
+      }else{
+        this.dataSource = data;
+        this.testData = data;
+        
+        this.tableColumns = Object.keys(this.dataSource[0]);
      
-      this.tableData.paginator =  this.parentPaginator.paginator;
-      this.tableData.sort =  this.parentSort.sort;
+        this.tableData = new MatTableDataSource<object>(this.dataSource);
+       
+        this.tableData.paginator =  this.parentPaginator.paginator;
+        this.tableData.sort =  this.parentSort.sort;
+      }
+      
       
     });
   }

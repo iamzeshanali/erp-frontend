@@ -27,7 +27,11 @@ export class PaymentTermsComponent  {
     this.tableData = new MatTableDataSource<object>();
     this.dataService.getAPI('paymentTerms').subscribe( data =>
     {
-      this.dataSource = data;
+      if(data.hasOwnProperty('error'))
+      {
+        this.tableData = 0;
+      }else{
+        this.dataSource = data;
       this.testData = data;
 
       this.tableColumns = Object.keys(this.dataSource[0]);
@@ -35,6 +39,8 @@ export class PaymentTermsComponent  {
       this.tableData = new MatTableDataSource<object>(this.dataSource);
       this.tableData.paginator =  this.parentPaginator.paginator;
       this.tableData.sort =  this.parentSort.sort;
+      }
+      
 
     });
   }

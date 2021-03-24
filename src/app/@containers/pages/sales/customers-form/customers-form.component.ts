@@ -179,7 +179,7 @@ export class CustomersFormComponent implements OnInit {
            .subscribe((res) => {
             if(res.hasOwnProperty('success')){
               this.success = true;
-              this.notificationService.success('Success', 'Warehouse Updated.');
+              this.notificationService.success('Success', 'Customer Updated.');
             }else{
               this.notificationService.error('Error', 'Server Error Occur.');
             }
@@ -190,7 +190,7 @@ export class CustomersFormComponent implements OnInit {
             console.log(res);
             if(res.hasOwnProperty('success')){
               this.success = true;
-              this.notificationService.success('Success', 'Warehouse Added.');
+              this.notificationService.success('Success', 'Customer Added.');
               this.formData.reset({
                 customerName: '',
                 status: '',

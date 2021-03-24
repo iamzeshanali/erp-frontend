@@ -1,4 +1,4 @@
-# Angular Boilerplate
+#ERP 
 
 Angular starter for enterprise-grade front-end projects, built under a clean architecture that helps to scale and maintain a fast workflow.
 

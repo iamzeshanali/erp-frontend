@@ -56,11 +56,11 @@
         
                         <div class="float-child2">
                             <section class="col col-lg-6">
-                                <input class="form-control" formControlName="code" type="text" placeholder="Code" name="username">
+                                <input class="form-control" formControlName="code" type="text" placeholder="Code" name="username" readonly>
                             </section>
                             <section class="col col-lg-6">
                                 <select name="status" id="status" formControlName="status">
-                                    <option value=""></option>
+                                    <option value="" selected disabled>Please Select</option>
                                     <option *ngFor="let s of STATUS" [value]="s.name">{{s.name}}</option>
                                 </select>
                             </section>
