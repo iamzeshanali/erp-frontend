@@ -269,21 +269,27 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="float-child3" style="width: 100%; padding-right: 20px;">
-                            <mat-tab-group dynamicHeight>
+                            <mat-tab-group dynamicHeight [(selectedIndex)]="newTab">
                                 <!-- Items -->
-                                <mat-tab style="height:20px !important;" label="Items">   
+                                <mat-tab style="height:20px !important;" label="Link Docs">   
                                     <div>
                                         <app-dtable
                                         [dataSource]="tableData"
                                         [displayedColumns]="tableColumns"
                                         [moduleTitle]="moduleName"
                                         [routeTitle]="entityName"
+                                        (addDocumentClicked)="parentEventHandlerFunction($event)"
                                         >
                                         </app-dtable>
                                     </div>
                                 </mat-tab>
                                 <!-- Link Docs -->
-                                <mat-tab style="height:20px !important" label="Link Docs">     
+                                <mat-tab style="height:20px !important" label="New Docs">   
+                                      <app-sales-invoice-detail-form
+                                      [editData]="editData"
+                                      (deleteSalesInvoice) = "deleteFromArray($event)"
+                                      (formSubmitted)="pushToArray($event)"
+                                      ></app-sales-invoice-detail-form>
                                 </mat-tab>
                                 <!-- Order Picking -->
                                 <mat-tab style="height:20px !important" label="Order Picking ">     

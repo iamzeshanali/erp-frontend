@@ -18,8 +18,11 @@ export class SalesInvoiceFormComponent implements OnInit {
   moduleName:any ="salesInvoiceForm"
   tableData: any;
   tableColumns: any[] = [];
+  salesInvoiceDetailFormData: any[] = [];
   dataSource: any;
   testData: any;
+  newTab:any = 0;
+  editData:any;
 
   paymentTermsData: any;
   customersData: any;
@@ -56,6 +59,42 @@ export class SalesInvoiceFormComponent implements OnInit {
   @ViewChild(DtableComponent) parentPaginator!: DtableComponent;
   @ViewChild(DtableComponent) parentSort!: DtableComponent;
 
+  parentEventHandlerFunction(valueEmitted: any){
+    
+    if(valueEmitted == 1){
+      this.newTab = 1;
+    }else if(valueEmitted != 1){
+      this.editData = this.salesInvoiceDetailFormData.find(x=> x.product == valueEmitted);
+      this.newTab = 1;
+    }
+    else{
+      this.newTab = 0;
+    }
+    
+  }
+  pushToArray(valueEmitted: any){
+    this.salesInvoiceDetailFormData.push(valueEmitted);
+    this.newTab = 0;
+
+        this.tableColumns = Object.keys(this.salesInvoiceDetailFormData[0]);
+        this.tableData = new MatTableDataSource<object>(this.salesInvoiceDetailFormData);
+
+        this.tableData.paginator =  this.parentPaginator.paginator;
+        this.tableData.sort =  this.parentSort.sort;
+  }
+  deleteFromArray(valueEmitted:any)
+  {
+    var index;
+    index = this.salesInvoiceDetailFormData.findIndex(x=> x.product == valueEmitted);
+    this.salesInvoiceDetailFormData = this.salesInvoiceDetailFormData.splice(index,1);
+    this.salesInvoiceDetailFormData.forEach((item, index) => {
+      if(item == valueEmitted){
+        this.salesInvoiceDetailFormData.splice(index,1);
+      }
+    });
+    this.newTab = 0;
+  }
+
   constructor(private ApiService:ApiService, private route: ActivatedRoute, private router: Router,private notificationService: NotificationsService) {
     this.route.paramMap.subscribe( params => {
       const ROUTE_ID = params.get('id');
@@ -86,6 +125,26 @@ export class SalesInvoiceFormComponent implements OnInit {
            });
         }
       });
+      this.tableData = new MatTableDataSource<object>();
+
+      // this.ApiService.getAPI("salesInvoiceDetail").subscribe( data =>
+      // {
+      //   if(data.hasOwnProperty('error'))
+      // {
+      //   this.tableData = 0;
+      // }else
+      // {
+      //   this.dataSource = data;
+      //   this.testData = data;
+
+      //   this.tableColumns = Object.keys(this.dataSource[0]);
+      //   this.tableData = new MatTableDataSource<object>(this.dataSource);
+
+      //   this.tableData.paginator =  this.parentPaginator.paginator;
+      //   this.tableData.sort =  this.parentSort.sort;
+      // }
+        
+      // });
     });
 
 
@@ -150,9 +209,9 @@ export class SalesInvoiceFormComponent implements OnInit {
 
   });
 
+  
   onSubmit()
   {
-   
    if(this.formData.valid)
    {
     this.route.paramMap.subscribe( params => {

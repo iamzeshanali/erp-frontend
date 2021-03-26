@@ -22,6 +22,7 @@ export class DtableComponent {
   @Input() routeTitle: any;
   @Input() primaryId: any;
   @Output() rowClicked: EventEmitter<any> = new EventEmitter<any>();
+  @Output() addDocumentClicked: EventEmitter<any> = new EventEmitter<any>();
 
       @ViewChild(MatPaginator) paginator!: MatPaginator;
       @ViewChild(MatSort) sort!: MatSort;
@@ -30,16 +31,24 @@ export class DtableComponent {
       {
         
       }
-    
+      
   applyFilter(e: Event) {
     let  filterValue = (<HTMLInputElement>e.target).value
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-  fetchRowDetails(id:any, entity: any)
+  fetchRowDetails(id:any, entity: any, moduleTitle:any)
   {
-    this.router.navigate([entity+'/form',id]);
+    if(moduleTitle != 'salesInvoiceForm'){
+      this.router.navigate([entity+'/form',id]);
+    }else{
+      this.addDocumentClicked.emit(id);
+    }   
+  }
+
+  changeTab(e: Event){
+    this.addDocumentClicked.emit(1);
   }
 
 }

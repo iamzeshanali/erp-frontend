@@ -1,4 +1,19 @@
 <div class="main">
+  <div *ngIf="moduleTitle == 'salesInvoiceForm'">
+    <nav
+      class="container flex items-center justify-between h-full py-2 mx-auto center"
+    >
+    <mat-form-field appearance="outline" color="primary" class="example-full-width">
+      <input type="text" matInput (keyup)="applyFilter($event)" placeholder="Quick Search">
+      <mat-icon class="white-color" matSuffix>search</mat-icon>
+    </mat-form-field>
+      <div class="flex items-center">
+        <a (click)="changeTab($event)" style="cursor: pointer;">
+          <mat-icon [ngStyle]="{'color':'#3d4852'}" aria-hidden="false" matTooltip="New Document" aria-label="Example home icon">note_add</mat-icon>
+        </a>
+      </div>
+    </nav>
+  </div>
     <div class="header" *ngIf="moduleTitle != 'salesInvoiceForm'">
       <nav
         class="container flex items-center justify-between h-full py-2 mx-auto center"
@@ -18,7 +33,7 @@
         </div>
       </nav>
     </div>
-    <div class="secondary-header">
+    <div class="secondary-header" *ngIf="moduleTitle != 'salesInvoiceForm'">
       <form class="example-form">
         <mat-form-field appearance="outline" color="primary" class="example-full-width">
           <input type="text" matInput (keyup)="applyFilter($event)" placeholder="Quick Search">
@@ -37,7 +52,7 @@
   
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns; "
-            (click)="fetchRowDetails(row[displayedColumns[0]],routeTitle)"
+            (click)="fetchRowDetails(row[displayedColumns[0]],routeTitle, moduleTitle)"
         >
         </tr>
       </table>
