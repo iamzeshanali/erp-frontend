@@ -29,6 +29,7 @@ export class ApiService {
       // UPDATE -- PATCH
       editAPI(data : any, id: any, entity: any){
         const url = 'http://erp.test/api/'+entity+'/'+id;
+        console.log(url);
         let headers = new HttpHeaders();
         headers = headers.set('Content-Type', 'application/json; charset=utf-8');
         return this.httpClient.patch(url,data,{headers:headers});

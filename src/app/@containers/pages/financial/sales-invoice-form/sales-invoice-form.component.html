@@ -25,7 +25,7 @@
             <mat-icon aria-hidden="false"  aria-label="Example home icon">delete_outline</mat-icon>
         </a>
         <button type="submit" class="action-button" matTooltip="Save Payment Term"> <mat-icon aria-hidden="false"  aria-label="Example home icon">save</mat-icon></button>
-        <a [routerLink]="['financial/purchaseOrder/form']" class="action-button" matTooltip="New Payment Term" target="{{targent_prop}}" rel="noopener noreferrer">
+        <a [routerLink]="['']" class="action-button" matTooltip="New Payment Term" target="{{targent_prop}}" rel="noopener noreferrer">
            <mat-icon aria-hidden="false"  aria-label="Example home icon">note_add</mat-icon>
         </a>
       </div>
@@ -63,7 +63,7 @@
         
                         <div class="float-child2">
                             <section class="col col-lg-6">
-                                <input class="form-control" formControlName="invoiceNumber" type="text" placeholder=" Number" name="invoiceNumber">
+                                <input class="form-control" formControlName="invoiceNumber" type="text" placeholder=" Number" name="invoiceNumber" readonly>
                             </section>
                             <section class="col col-lg-6 float-container">
                                 <input autocomplete="off" list="customers" class="form-control" formControlName="customer" type="text" placeholder="" name="customer">
@@ -286,6 +286,7 @@
                                 <!-- Link Docs -->
                                 <mat-tab style="height:20px !important" label="New Docs">   
                                       <app-sales-invoice-detail-form
+                                      [salesInvoiceNumber]="docNumber"
                                       [editData]="editData"
                                       (deleteSalesInvoice) = "deleteFromArray($event)"
                                       (formSubmitted)="pushToArray($event)"

@@ -27,11 +27,15 @@ export class SalesInvoiceDetailFormComponent implements OnInit ,OnChanges {
   success:boolean=false;
   error:boolean=false;
 
+  @Input() salesInvoiceNumber: any;
   @Input() editData: any;
   @Output() formSubmitted: EventEmitter<any> = new EventEmitter<any>();
   @Output() deleteSalesInvoice: EventEmitter<any> = new EventEmitter<any>();
 
   ngOnChanges(){
+    this.formData.patchValue({
+      salesInvoice: this.salesInvoiceNumber
+    });
     this.formData.patchValue({
       product: this.editData?.product,
       brand: this.editData?.brand,
@@ -46,7 +50,7 @@ export class SalesInvoiceDetailFormComponent implements OnInit ,OnChanges {
   }
   constructor(private ApiService:ApiService, private route: ActivatedRoute, private router: Router, private notificationService:NotificationsService)
   {
-   
+    
   }
 
   setBlankActive(){
@@ -77,6 +81,7 @@ export class SalesInvoiceDetailFormComponent implements OnInit ,OnChanges {
     total: new FormControl('',Validators.required),
     discount: new FormControl('',Validators.required),
     discountType: new FormControl('',Validators.required),
+    salesInvoice:new FormControl(''),
   })
   onSubmit(){
     console.log(this.formData.value);

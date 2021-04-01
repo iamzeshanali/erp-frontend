@@ -33,6 +33,7 @@ export class SalesInvoiceFormComponent implements OnInit {
   invoiceNumber: any;
   docNumber:any;
   fetchedData: any;
+  fetchedDataDetail: any[]=[];
 
   editRoute : boolean = false;
   response: any;
@@ -70,7 +71,6 @@ export class SalesInvoiceFormComponent implements OnInit {
     else{
       this.newTab = 0;
     }
-    
   }
   pushToArray(valueEmitted: any){
     this.salesInvoiceDetailFormData.push(valueEmitted);
@@ -105,7 +105,7 @@ export class SalesInvoiceFormComponent implements OnInit {
           this.docNumber = "SI-"+1;
         }else{
           this.fetchedData = data;
-          this.invoiceNumber = this.fetchedData.length+1;
+          this.invoiceNumber = this.fetchedData[this.fetchedData.length-1].id + 1;
           this.docNumber = "SI-"+this.invoiceNumber;
         }
 
@@ -116,8 +116,57 @@ export class SalesInvoiceFormComponent implements OnInit {
           const termData = this.fetchedData.find((x: { invoiceNumber: string; }) => x.invoiceNumber === ROUTE_ID);
           this.formData.patchValue({
             invoiceNumber: termData?.invoiceNumber,
-            status: termData?.Status,
-            description: termData?.description,
+            status: termData?.status,
+            customer: termData?.customer,
+            date: termData?.date,
+
+            paymentTerm: termData?.paymentTerms,
+            profitinPercentage: termData?.profitInPercent,
+            profitinDollars: termData?.profitInDollar,
+
+            total: termData?.total,
+            discountinPercentage: termData?.discountInPercent,
+            discountinDollars: termData?.discountInDollar,
+            totalAfterDiscount: termData?.totalAfterDiscount,
+            totalTax: termData?.totalTax,
+            finalPrice: termData?.finalPrice,
+
+            shippingAddress: termData?.shippingAddress,
+            shippingAddress2: termData?.shippingAddress2,
+            shippingState: termData?.shippingState,
+            shippingCity: termData?.shippingCity,
+            shippingCountry: termData?.shippingCountry,
+            shippingZip: termData?.shippingZip,
+            shippingCode: termData?.shippingCode,
+
+            salesRepresentative: termData?.salesRepresentative,
+            warehouse: termData?.warehouse,          
+          });
+          
+          this.ApiService.getAPI('salesInvoiceDetail').subscribe(data => {
+            this.fetchedData = data;
+            if(this.fetchedData.length>0){
+
+              for (let index = 0; index < this.fetchedData.length; index++) {
+                if(this.fetchedData[index].salesInvoice == termData?.invoiceNumber){
+                  this.fetchedDataDetail.push(this.fetchedData[index]);
+                  this.salesInvoiceDetailFormData.push(this.fetchedData[index]);
+                }
+              }
+              if(this.fetchedDataDetail.length > 0){
+                this.tableColumns = Object.keys(this.fetchedDataDetail[0]);
+                this.tableData = new MatTableDataSource<object>(this.fetchedDataDetail);
+    
+                this.tableData.paginator =  this.parentPaginator.paginator;
+                this.tableData.sort =  this.parentSort.sort;
+              }else{
+                this.tableData = 0;
+              }
+              
+            }else{
+              this.tableData = 0;
+            }
+            
           });
         }else{
           this.formData.patchValue({
@@ -126,25 +175,6 @@ export class SalesInvoiceFormComponent implements OnInit {
         }
       });
       this.tableData = new MatTableDataSource<object>();
-
-      // this.ApiService.getAPI("salesInvoiceDetail").subscribe( data =>
-      // {
-      //   if(data.hasOwnProperty('error'))
-      // {
-      //   this.tableData = 0;
-      // }else
-      // {
-      //   this.dataSource = data;
-      //   this.testData = data;
-
-      //   this.tableColumns = Object.keys(this.dataSource[0]);
-      //   this.tableData = new MatTableDataSource<object>(this.dataSource);
-
-      //   this.tableData.paginator =  this.parentPaginator.paginator;
-      //   this.tableData.sort =  this.parentSort.sort;
-      // }
-        
-      // });
     });
 
 
@@ -207,11 +237,17 @@ export class SalesInvoiceFormComponent implements OnInit {
     salesRepresentative: new FormControl('', Validators.required),
     warehouse: new FormControl('', Validators.required),
 
+    salesInvoiceDetail: new FormControl('', Validators.required),
+
   });
 
   
   onSubmit()
   {
+    this.formData.patchValue({
+      salesInvoiceDetail: this.salesInvoiceDetailFormData,
+     });
+     console.log(JSON.stringify(this.formData.value));
    if(this.formData.valid)
    {
     this.route.paramMap.subscribe( params => {
@@ -220,16 +256,16 @@ export class SalesInvoiceFormComponent implements OnInit {
         
          this.ApiService.editAPI(JSON.stringify(this.formData.value), ROUTE_ID, this.entityName)
          .subscribe((res) => {
+           console.log(res);
           if(res.hasOwnProperty('success')){
             this.success = true;
             this.notificationService.success('Success', 'Sales Invoice Updated.');
-            this.router.navigate(['financial/paymentTerms/']);
           }else{
             this.notificationService.error('Error', 'Server Error Occur.');
           }
          });
       }else if(!ROUTE_ID){
-        console.error(this.formData.value);
+        console.log(this.formData.value);
         this.ApiService.storeAPI(JSON.stringify(this.formData.value), this.entityName)
         .subscribe((res) => {
           if(res.hasOwnProperty('success')){
@@ -290,7 +326,10 @@ export class SalesInvoiceFormComponent implements OnInit {
         .subscribe((res) => {
           if(res.hasOwnProperty('success')){
             this.success = true;
-            this.router.navigate(['financial/paymentTerms/']);
+            this.notificationService.success('Success', 'Sales Invoice Deleted.');
+            this.router.navigate(['financial/salesInvoice/']);
+          }else{
+            this.notificationService.error('Error', 'Server Error Occured.');
           }
         });
       }

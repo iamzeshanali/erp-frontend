@@ -15,23 +15,22 @@ export class SalesInvoiceComponent {
   dataSource: any;
   testData: any;
   moduleName:any = "Sales Invoice";
-  entityName = 'salesInvoice'
+  entityName = 'financial/salesInvoice'
   @ViewChild(DtableComponent) parentPaginator!: DtableComponent;
   @ViewChild(DtableComponent) parentSort!: DtableComponent;
 
   constructor( private dataService:ApiService)
   {
     this.tableData = new MatTableDataSource<object>();
-    this.dataService.getAPI(this.entityName).subscribe( data =>
+    this.dataService.getAPI('salesInvoice').subscribe( data =>
     {
       if(data.hasOwnProperty('error'))
       {
         this.tableData = 0;
       }else{
         this.dataSource = data;
-        this.testData = data;
-  
         this.tableColumns = Object.keys(this.dataSource[0]);
+        this.tableColumns.splice(Object.keys(this.dataSource[0]).length-1);
         this.tableData = new MatTableDataSource<object>(this.dataSource);
         
         this.tableData.paginator =  this.parentPaginator.paginator;

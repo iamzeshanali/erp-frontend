@@ -1,5 +1,5 @@
 <div class="main">
-  <div *ngIf="moduleTitle == 'salesInvoiceForm'">
+  <div *ngIf="moduleTitle == 'salesInvoiceForm' || moduleTitle == 'purchaseOrderForm'">
     <nav
       class="container flex items-center justify-between h-full py-2 mx-auto center"
     >
@@ -14,7 +14,7 @@
       </div>
     </nav>
   </div>
-    <div class="header" *ngIf="moduleTitle != 'salesInvoiceForm'">
+    <div class="header" *ngIf="moduleTitle !== 'salesInvoiceForm' && moduleTitle !== 'purchaseOrderForm'">
       <nav
         class="container flex items-center justify-between h-full py-2 mx-auto center"
       >
@@ -33,7 +33,7 @@
         </div>
       </nav>
     </div>
-    <div class="secondary-header" *ngIf="moduleTitle != 'salesInvoiceForm'">
+    <div class="secondary-header" *ngIf="moduleTitle !== 'salesInvoiceForm' && moduleTitle !== 'purchaseOrderForm'">
       <form class="example-form">
         <mat-form-field appearance="outline" color="primary" class="example-full-width">
           <input type="text" matInput (keyup)="applyFilter($event)" placeholder="Quick Search">
@@ -63,10 +63,10 @@
     <div class="h-full" *ngIf="this.dataSource==0">
       <div class="container flex items-center justify-center h-full">
         <div class="mt-20 text-center md:max-w-xl">
-          <h1 i18n class="mb-4">👋 No record exist for Receipts.</h1>
-          <p i18n class="mb-12 text-xl">⚒️ Start Adding Receipt. ⚒️</p>
+          <h1 i18n class="mb-4">👋 No record exist.</h1>
+          <p i18n class="mb-12 text-xl">⚒️ Start Adding new Record ⚒️</p>
           <a [routerLink]="['/financial/receipt/form']" class="btn btn-primary">
-            Go to Receipts Form
+            Go to Document Form
           </a>
         </div>
       </div>

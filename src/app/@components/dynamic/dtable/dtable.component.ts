@@ -47,6 +47,7 @@ export class DtableComponent {
     }   
   }
 
+
   changeTab(e: Event){
     this.addDocumentClicked.emit(1);
   }
