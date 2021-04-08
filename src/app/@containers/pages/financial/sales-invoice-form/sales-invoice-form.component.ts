@@ -12,6 +12,8 @@ import { NotificationsService } from 'angular2-notifications';
 })
 export class SalesInvoiceFormComponent implements OnInit {
 
+  customerValue:any;
+ 
   isBlankActive = false;
   entityName = 'salesInvoice';
   targent_prop = "";
@@ -64,6 +66,7 @@ export class SalesInvoiceFormComponent implements OnInit {
     
     if(valueEmitted == 1){
       this.newTab = 1;
+      this.editData = null;
     }else if(valueEmitted != 1){
       this.editData = this.salesInvoiceDetailFormData.find(x=> x.product == valueEmitted);
       this.newTab = 1;
@@ -95,6 +98,19 @@ export class SalesInvoiceFormComponent implements OnInit {
     this.newTab = 0;
   }
 
+  fetchCustomerDetail(){
+    // alert(this.customerValue);
+    
+    const customerData = this.customersData.find((x: { customerName: string; }) => x.customerName === this.customerValue);
+    this.formData.patchValue({
+      shippingAddress: customerData?.shippingAddressLine1,
+      shippingAddress2: customerData?.shippingAddressLine2,
+      shippingState: customerData?.shippingState,
+      shippingCity: customerData?.shippingCity,
+      shippingCountry: customerData?.shippingCountry,
+      shippingZip: customerData?.shippingZip,     
+    });
+  }
   constructor(private ApiService:ApiService, private route: ActivatedRoute, private router: Router,private notificationService: NotificationsService) {
     this.route.paramMap.subscribe( params => {
       const ROUTE_ID = params.get('id');
@@ -172,6 +188,7 @@ export class SalesInvoiceFormComponent implements OnInit {
           this.formData.patchValue({
             invoiceNumber: this.docNumber,
            });
+           this.tableData = 0;
         }
       });
       this.tableData = new MatTableDataSource<object>();

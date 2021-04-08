@@ -1,6 +1,29 @@
 <div class="container flex flex-col items-center justify-center h-full">
-  <p class="mb-24 text-5xl text-danger-500">You're not logged in!</p>
-  <button class="w-32 btn btn-primary" (click)="onClickSignIn()">
-    Sign in
-  </button>
+  <simple-notifications></simple-notifications>
+  <p class="font-bold text-5xl text-danger-500" style="margin-bottom: 48px;">Blurack <span style="color:#3d4852">ERP</span></p>
+  <form  [formGroup]="formData" (ngSubmit)="onClickSignIn()">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="username" />
+        <mat-icon matSuffix>person_pin</mat-icon>
+      </mat-form-field>
+    </p>
+    <p style="margin-bottom: 18px;">
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-hint align="end"><a href="http://" target="_blank" rel="noopener noreferrer">Forgot password</a></mat-hint>
+      </mat-form-field>
+    </p>
+    <p style="display: flex; justify-content: center;">
+      <button type="submit" class="w-32 btn btn-primary">
+        Sign in
+      </button>
+    </p>
+      
+  </form>
 </div>

@@ -49,10 +49,15 @@ import { CustomersFormComponent } from './sales/customers-form/customers-form.co
 import { PreferredVendorFormComponent } from './sales/preferred-vendor-form/preferred-vendor-form.component';
 import { ProductFormComponent } from './sales/product-form/product-form.component';
 import { SalesRepresentativeFormComponent } from './sales/sales-representative-form/sales-representative-form.component';
+import { AuthGuard } from '@app/@core/guards';
+import { AuthService } from '@app/@services/auth.service';
+import { ActivateGuard } from '@app/@core/guards/activate.guard';
+import { DashboardPage } from './home/dashboard/dashboard.page';
+// import { AuthService } from '@app/+auth/services/auth.service';
 
 
 @NgModule({
-  declarations: [BrandsComponent,CustomersComponent,PreferredVendorComponent,ProductComponent,SalesRepresentativeComponent, PaymentTermsComponent, PurchaseOrderComponent, PurchaseOrderDetailComponent, PurchaseOrderReceivingComponent, ReceiptComponent, SalesInvoiceComponent, SalesInvoiceDetailComponent, TaxClassComponent, CasePackComponent, FamilyComponent, GroupComponent, UomComponent, ShipmentsComponent, WarehouseComponent, PaymentTermsFormComponent, PurchaseOrderFormComponent, PurchaseOrderReceivingFormComponent, ReceiptFormComponent, SalesInvoiceFormComponent, SalesInvoiceDetailFormComponent, TaxClassFormComponent, PurchaseOrderDetailFormComponent, CasePackFormComponent, FamilyFormComponent, GroupFormComponent, UomFormComponent, ShipmentsFormComponent, WarehouseFormComponent, BrandsFormComponent, CustomersFormComponent, PreferredVendorFormComponent, ProductFormComponent, SalesRepresentativeFormComponent],
+  declarations: [DashboardPage, BrandsComponent,CustomersComponent,PreferredVendorComponent,ProductComponent,SalesRepresentativeComponent, PaymentTermsComponent, PurchaseOrderComponent, PurchaseOrderDetailComponent, PurchaseOrderReceivingComponent, ReceiptComponent, SalesInvoiceComponent, SalesInvoiceDetailComponent, TaxClassComponent, CasePackComponent, FamilyComponent, GroupComponent, UomComponent, ShipmentsComponent, WarehouseComponent, PaymentTermsFormComponent, PurchaseOrderFormComponent, PurchaseOrderReceivingFormComponent, ReceiptFormComponent, SalesInvoiceFormComponent, SalesInvoiceDetailFormComponent, TaxClassFormComponent, PurchaseOrderDetailFormComponent, CasePackFormComponent, FamilyFormComponent, GroupFormComponent, UomFormComponent, ShipmentsFormComponent, WarehouseFormComponent, BrandsFormComponent, CustomersFormComponent, PreferredVendorFormComponent, ProductFormComponent, SalesRepresentativeFormComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -76,6 +81,7 @@ import { SalesRepresentativeFormComponent } from './sales/sales-representative-f
     ),
 
 
-  ]
+  ],
+  providers: [ActivateGuard, AuthService]
 })
 export class PagesModule { }

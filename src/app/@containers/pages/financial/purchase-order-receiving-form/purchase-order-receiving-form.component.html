@@ -1,1 +1,98 @@
-<p>purchase-order-receiving-form works!</p>
+<div class="main">
+    <form class="example-form" [formGroup]="formData" (ngSubmit)="onSubmit()">
+  <div class="header">
+    <nav
+      class="container flex items-center justify-between h-full py-2 mx-auto center"
+    >
+    <button mat-button matTooltip="New Document" class="color-white action-button">
+        <mat-icon aria-hidden="false"  aria-label="Example home icon">list</mat-icon>
+    </button>
+      <span class="text-white"></span>
+      <div class="flex items-center">
+        <a class="action-button" matTooltip="View Payment Term" target="{{targent_prop}}" rel="noopener noreferrer">
+            <mat-icon aria-hidden="false"  aria-label="Example home icon">list</mat-icon>
+        </a>
+        <a (click)="DeletePaymentTerm()" class="action-button" matTooltip="Delete Payment Term" target="{{targent_prop}}" rel="noopener noreferrer">
+            <mat-icon aria-hidden="false"  aria-label="Example home icon">delete_outline</mat-icon>
+        </a>
+        <button type="submit" class="action-button" matTooltip="Save Payment Term"> <mat-icon aria-hidden="false"  aria-label="Example home icon">save</mat-icon></button>
+      </div>
+    </nav>
+  </div>
+  <div class="component" style="height: 167px !important;">
+    <div class="secondary-header">
+
+            <div class="float-container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="float-child1">
+                            <section class="col col-lg-3">
+                                <label class="label">Product</label>
+                            </section>
+                            <section class="col col-lg-3">
+                                <label class="label">Brand</label>
+                            </section>
+                            <section class="col col-lg-3">
+                                <label class="label">Due Date</label>
+                            </section>
+                        </div>
+        
+                        <div class="float-child2">
+                            <section class="col col-lg-6 float-container">
+                                <input list="product" autocomplete="off" class="form-control" formControlName="product" type="text" placeholder=" Product" name="customer">
+                                <datalist id="product">
+                                    <option *ngFor="let product of productsData" [value]="product.code">{{product.code}}</option>
+                                </datalist>
+                            </section>
+                            <section class="col col-lg-6 float-container">
+                                <input list="brand" autocomplete="off" class="form-control" formControlName="brand" type="text" placeholder=" Brand" name="customer">
+                                <datalist id="brand">
+                                    <option *ngFor="let brand of brandsData" [value]="brand.code">{{brand.code}}</option>
+                                </datalist>
+                            </section>
+                            <section class="col col-lg-6">
+                                <input type="date" formControlName="dueDate" id="start" name="date"
+                                    value="2017-06-01"
+                                    min="2021-01-01" max="2050-12-31">
+                            </section>
+                            
+                        </div>
+
+                        <div class="float-child1" style="margin-left: 30px;">
+                            <section class="col col-lg-3">
+                                <label class="label">Quantity</label>
+                            </section> 
+                            <section class="col col-lg-3">
+                                <label class="label">Total</label>
+                            </section>
+                            <section class="col col-lg-3">
+                                <label class="label">Discount</label>
+                            </section>   
+                            <section class="col col-lg-3">
+                                <label class="label">Discount Type</label>
+                            </section>
+                        </div>
+        
+                        <div class="float-child2">
+                            <section class="col col-lg-6">
+                                <input class="input-field" formControlName="quantity" style="width: 120px !important;" type="number" placeholder="                " name="cash">
+                            </section>
+                            <section class="col col-lg-6">
+                                <input class="input-field" formControlName="total" style="width: 120px !important;" type="number" placeholder="                $0.00" name="cash">
+                            </section>
+                            <section class="col col-lg-6">
+                                <input class="input-field" formControlName="discount" style="width: 120px !important;" type="number" placeholder="                $0.00" name="cash">
+                            </section>
+                            <section class="col col-lg-6">
+                                <input class="input-field" formControlName="discountType" style="width: 120px !important;" type="text" placeholder="                " name="cash">
+                            </section>        
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+    </div>
+  </div>
+</form>
+</div>

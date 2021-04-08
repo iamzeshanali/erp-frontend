@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './+auth/services/auth.service';
 import { SeoService } from './@core/services/seo';
 import { ThemeService } from './@core/services/theme';
 import { Path } from './@core/structs';
+// import { AuthService } from './@services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,23 +13,35 @@ import { Path } from './@core/structs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  isLoggedIn$!: Observable<boolean>;
+  isLoggedIn$!: boolean;
 
   constructor(
     private router: Router,
     private seoService: SeoService,
     private themeService: ThemeService,
     private authService: AuthService,
-  ) {}
+  ) {
+    
+  }
 
   ngOnInit(): void {
-    this.isLoggedIn$ = this.authService.isLoggedIn$;
+   var user = localStorage.getItem('user');
+   
+   if(user){
+    this.isLoggedIn$ = true;
+   }else{
+    this.isLoggedIn$ = false;
+   }
+   
+
     this.seoService.init();
     this.themeService.init();
   }
 
   onLogout(): void {
-    this.authService.signOut();
-    this.router.navigate([`/${Path.SignIn}`]);
+    localStorage.removeItem("user");
+    this.router.navigate([`/${Path.SignIn}`]).then(() => {
+      window.location.reload();
+    });
   }
 }

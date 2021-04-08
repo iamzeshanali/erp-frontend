@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,15 +14,18 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
-import {MatPaginator} from '@angular/material/paginator';
 import {SecondaryHeaderModule} from "@components/secondary-header/secondary-header.module";
 import {DynamicModule} from "@components/dynamic/dynamic.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {PagesModule} from "@containers/pages/pages.module";
 import { SimpleNotificationsModule } from 'angular2-notifications';
+import { AuthModule } from './+auth/auth.module';
+import { AuthGuard } from './@core/guards';
+import { ActivateGuard } from './@core/guards/activate.guard';
+// import { AuthService } from './+auth/services/auth.service';
+import { AuthService } from './@services/auth.service';
+import { PagesModule } from './@containers/pages/pages.module';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -44,9 +46,16 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    AuthModule,
+    PagesModule,
     SimpleNotificationsModule.forRoot()
   ],
+  exports: [
+    MatInputModule,
+    MatFormFieldModule,
+  ],
   providers: [
+    AuthGuard, AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ServerErrorInterceptor,

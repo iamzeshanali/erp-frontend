@@ -20,9 +20,11 @@ export class DtableComponent {
   @Input() displayedColumns: any[]=[];
   @Input() moduleTitle: any;
   @Input() routeTitle: any;
+  @Input() nestedComponentName: any;
   @Input() primaryId: any;
   @Output() rowClicked: EventEmitter<any> = new EventEmitter<any>();
   @Output() addDocumentClicked: EventEmitter<any> = new EventEmitter<any>();
+  @Output() recevingDocumentClicked: EventEmitter<any> = new EventEmitter<any>();
 
       @ViewChild(MatPaginator) paginator!: MatPaginator;
       @ViewChild(MatSort) sort!: MatSort;
@@ -40,16 +42,24 @@ export class DtableComponent {
   }
   fetchRowDetails(id:any, entity: any, moduleTitle:any)
   {
-    if(moduleTitle != 'salesInvoiceForm'){
-      this.router.navigate([entity+'/form',id]);
-    }else{
+    if(moduleTitle == 'salesInvoiceForm'){
       this.addDocumentClicked.emit(id);
+    }else if(moduleTitle == 'purchaseOrderForm'){
+      this.addDocumentClicked.emit(id);
+    }else if(moduleTitle == 'purchaseOrderReceiving'){
+      this.recevingDocumentClicked.emit(id);
+    }
+    else{
+      this.router.navigate([entity+'/form',id]);
     }   
   }
 
 
   changeTab(e: Event){
-    this.addDocumentClicked.emit(1);
+    this.addDocumentClicked.emit('edit');
+  }
+  changeTabReceving(e:Event) {
+    this.recevingDocumentClicked.emit('edit');
   }
 
 }

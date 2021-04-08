@@ -1,4 +1,5 @@
 <div class="main">
+    <simple-notifications></simple-notifications>
     <form class="example-form" [formGroup]="formData" (ngSubmit)="onSubmit()">
         <!-- Action Header -->
   <div class="header">
@@ -24,9 +25,6 @@
             <mat-icon aria-hidden="false"  aria-label="Example home icon">delete_outline</mat-icon>
         </a>
         <button type="submit" class="action-button" matTooltip="Save Payment Term"> <mat-icon aria-hidden="false"  aria-label="Example home icon">save</mat-icon></button>
-        <a [routerLink]="['financial/purchaseOrder/form']" class="action-button" matTooltip="New Payment Term" target="{{targent_prop}}" rel="noopener noreferrer">
-           <mat-icon aria-hidden="false"  aria-label="Example home icon">note_add</mat-icon>
-        </a>
       </div>
     </nav>
   </div>
@@ -71,7 +69,7 @@
                                 <input class="form-control" formControlName="documentNumber" type="text" placeholder="Invoice Number" name="documentNumber">
                             </section>
                             <section class="col col-lg-6">
-                                <input list="vendor" autocomplete="off" class="form-control" formControlName="vendor" type="text" placeholder="" name="paymentTerm">
+                                <input list="vendor" [(ngModel)]="vendorValue" (blur)="fetchVendorDetail()" autocomplete="off" class="form-control" formControlName="vendor" type="text" placeholder="" name="paymentTerm">
                                 <datalist id="vendor">
                                     <option *ngFor="let vendor of vendorsData" [value]="vendor.name"> {{vendor.name}}</option>
                                 </datalist>
@@ -232,11 +230,11 @@
             Purchase Order Details</span>
         </nav>
     </div>
-    <div class="secondary-header">
+    <div class="secondary-header"  style="height:500px !important;">
 
             <div class="float-container">
                 <div class="row">
-                    <div class="col-lg-12" style="height: 396px im !important;">
+                    <div class="col-lg-12" style="height: 500px im !important;">
                         <div class="float-child3" style="width: 100%; padding-right: 20px;">
                             <mat-tab-group dynamicHeight [(selectedIndex)]="newTab">
                                 <!-- Items -->
@@ -257,43 +255,11 @@
                                       <app-purchase-order-detail-form
                                       [salesInvoiceNumber]="docNumber"
                                       [editData]="editData"
-                                      (deleteSalesInvoice) = "deleteFromArray($event)"
+                                      (deleteSalesInvoice) = "deleteFromDetailArray($event)"
                                       (formSubmitted)="pushToArray($event)"
                                       ></app-purchase-order-detail-form>
                                 </mat-tab>
-                                <!-- Order Picking -->
-                                <mat-tab style="height:20px !important" label="Order Picking ">     
-                                </mat-tab>
-                                <!-- Remarks -->
-                                <mat-tab style="height:20px !important" label="Remarks">     
-                                </mat-tab>
-                                <!--Attachments -->
-                                <mat-tab style="height:20px !important" label="Attachments">     
-                                </mat-tab>
-                                <!-- Notes -->
-                                <mat-tab style="height:20px !important" label="Notes">   
-                                </mat-tab>
-                                <!-- Audit Trail -->
-                                <mat-tab style="height:20px !important" label="Audit Trail">     
-                                </mat-tab>
-                                <!-- Customer Credit -->
-                                <mat-tab style="height:20px !important" label="Customer Credit">     
-                                </mat-tab>
-                                <!-- Payment Installment -->
-                                <mat-tab style="height:20px !important" label="Payment Installment">     
-                                </mat-tab>
-                                <!-- Email Logs -->
-                                <mat-tab style="height:20px !important" label="Email Logs">     
-                                </mat-tab>
-                                <!-- Payments -->
-                                <mat-tab style="height:20px !important" label="Payments">   
-                                </mat-tab>
-                                <!-- Related JE's -->
-                                <mat-tab style="height:20px !important" label="Related JE's">     
-                                </mat-tab>
-                                <!-- Associated Tasks -->
-                                <mat-tab style="height:20px !important" label="Associated Tasks">     
-                                </mat-tab>
+                                
                             </mat-tab-group>
                           </div>
                     </div>
@@ -302,7 +268,7 @@
     </div>
   </div>
   <!-- Purchase Order Receivings Component -->
-  <div class="component" style="margin-block: 20px;">
+  <div class="component" style="margin-block: 20px; height: auto;">
     <div class="primaryHeader">
         <nav
         class="container flex items-center justify-between h-full py-2 mx-auto center"
@@ -311,131 +277,38 @@
             Purchase Order Receivings</span>
         </nav>
     </div>
-    <div class="secondary-header">
+    <div class="secondary-header" style="height:500px !important;">
 
             <div class="float-container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" style="height: 500px im !important;">
                         <div class="float-child3" style="width: 100%; padding-right: 20px;">
-                            <mat-tab-group dynamicHeight>
-                              <!-- Financial -->
-                              <mat-tab style="height:20px !important" label="Financial">
-                                  <div class="child-wrapper">
-                                  <div class="float-child1">
-                                      <section class="col col-lg-3" style="margin-right:20px;">
-                                          <label class="label">Payment Terms</label>
-                                      </section>
-                                      <section class="col col-lg-3">
-                                          <label class="label">Currency</label>
-                                      </section>
-                                  </div>
-                                  <div class="float-child2" style="padding-left:40px;">
-                                      <section class="col col-lg-6">
-                                          <input class="input-field"  type="text" placeholder="" name="username">
-                                      </section>
-                                      <section class="col col-lg-6">
-                                          <select name="">
-                                              <option value=""></option>
-                                              <option value="">USD - US Dollar</option>
-                                              <option value="">AUS - AUS Dollar</option>
-                                          </select>
-                                      </section>
-                                  </div>
-                                  <div class="float-child1" style="margin-left:150px;">
-                                    <section class="col col-lg-3" style="margin-right:20px;">
-                                        <label class="label">Total</label>
-                                    </section>
-                                    <section class="col col-lg-3">
-                                        <label class="label">Discount</label>
-                                    </section>
-                                    <section class="col col-lg-3">
-                                        <label class="label">Discount Type</label>
-                                    </section>
-                                    <section class="col col-lg-3">
-                                        <label class="label">Total After Discount</label>
-                                    </section>
-                                    <section class="col col-lg-3">
-                                        <label class="label">Final Price</label>
-                                    </section>
-                                </div>
-                                <div class="float-child2" style="padding-left:40px;">
-                                    <section class="col col-lg-6">
-                                        <input class="input-field" style="width: 120px !important;" type="text" placeholder="Total" name="username">
-                                    </section>
-                                    <section class="col col-lg-6">
-                                        <input class="input-field" style="width: 120px !important;" type="text" placeholder="Discount" name="username">
-                                    </section>
-                                    <section class="col col-lg-6">
-                                        <input class="input-field" style="width: 120px !important;" type="text" placeholder="Discount Type" name="username">
-                                    </section>
-                                    <section class="col col-lg-6">
-                                        <input class="input-field" style="width: 120px !important;" type="text" placeholder="Total Discount" name="username">
-                                    </section>
-                                    <section class="col col-lg-6">
-                                        <input class="input-field" style="width: 120px !important;" type="text" placeholder="Final Price" name="username">
-                                    </section>
-                                </div>
-                                  </div>
-                              </mat-tab>
-                              <!-- Shipping -->
-                              <mat-tab style="height:20px !important" label="Shipping">
-                                <div class="child-wrapper">
-                                <div class="float-child1">
-                                    <section class="col col-lg-3" style="margin-right:20px;">
-                                        <label class="label">Shipping Address</label>
-                                    </section>
-                                    <section class="col col-lg-3">
-                                        <label class="label">Shipping Address2</label>
-                                    </section>
-                                    <section class="col col-lg-3" style="margin-right:20px;">
-                                        <label class="label">Shipping State</label>
-                                    </section>
-                                    <section class="col col-lg-3">
-                                        <label class="label">Shipping City</label>
-                                    </section>
-                                    <section class="col col-lg-3" style="margin-right:20px;">
-                                        <label class="label">Shipping Country</label>
-                                    </section>
-                                    
-                                </div>
-                                <div class="float-child2" style="padding-left:40px;">
-                                    <section class="col col-lg-6">
-                                        <input class="input-field"  type="text" placeholder=" Address" name="username">
-                                    </section>
-                                    <section class="col col-lg-6">
-                                        <input class="input-field"  type="text" placeholder=" Address2" name="username">
-                                    </section>
-                                    <section class="col col-lg-6">
-                                        <input class="input-field"  type="text" placeholder=" State" name="username">
-                                    </section>
-                                    <section class="col col-lg-6">
-                                        <input class="input-field"  type="text" placeholder=" City" name="username">
-                                    </section>
-                                    <section class="col col-lg-6">
-                                        <input class="input-field"  type="text" placeholder=" Country" name="username">
-                                    </section>
-                                </div>
-                                <div class="float-child1" style="margin-left:150px;">
-                                    <section class="col col-lg-3">
-                                        <label class="label">Shipping Zip</label>
-                                    </section>
-                                    <section class="col col-lg-3">
-                                        <label class="label">Shipping Code</label>
-                                    </section>
-                                </div>
-                                <div class="float-child2" style="padding-left:40px;">
-                                    <section class="col col-lg-6">
-                                        <input class="input-field"  type="text" placeholder="Zip" name="username">
-                                    </section>
-                                    <section class="col col-lg-6">
-                                        <input class="input-field"  type="text" placeholder="Code" name="username">
-                                    </section>
-                                </div>
-                                </div>
-                              </mat-tab>
-                              <!-- Custom Columns -->
-                              <mat-tab label="Custom Columns">
-                              </mat-tab>
+                            <mat-tab-group dynamicHeight [(selectedIndex)]="newTab2">
+                                <!-- Items -->
+                                <mat-tab style="height:20px !important;" label="Link Docs">   
+                                    <div>
+                                        <app-dtable
+                                        [dataSource]="receivingTableData"
+                                        [displayedColumns]="recevingTableColumns"
+                                        [moduleTitle]="moduleName"
+                                        [routeTitle]="entityName"
+                                        [nestedComponentName]="nestedComponentName"
+                                        (addDocumentClicked)="parentEventHandlerFunction($event)"
+                                        (recevingDocumentClicked)="recevingEventHandlerFunction($event)"
+                                        >
+                                        </app-dtable>
+                                    </div>
+                                </mat-tab>
+                                <!-- Link Docs -->
+                                <mat-tab style="height:20px !important" label="New Docs">   
+                                      <app-purchase-order-receiving-form
+                                      [salesInvoiceNumber]="docNumber"
+                                      [editData]="editData"
+                                      (deleteSalesInvoice) = "deleteFromReceivingArray($event)"
+                                      (formSubmitted)="pushToRecevingArray($event)"
+                                      ></app-purchase-order-receiving-form>
+                                </mat-tab>
+                                
                             </mat-tab-group>
                           </div>
                     </div>

@@ -24,7 +24,7 @@
             <mat-icon aria-hidden="false"  aria-label="Example home icon">delete_outline</mat-icon>
         </a>
         <button type="submit" class="action-button" matTooltip="Save Payment Term"> <mat-icon aria-hidden="false"  aria-label="Example home icon">save</mat-icon></button>
-        <a [routerLink]="['/warehouse/warehouse/form']" class="action-button" matTooltip="New Payment Term" target="{{targent_prop}}" rel="noopener noreferrer">
+        <a *ngIf="!editRoute" class="action-button" matTooltip="New Payment Term" target="{{targent_prop}}" rel="noopener noreferrer">
            <mat-icon aria-hidden="false"  aria-label="Example home icon">note_add</mat-icon>
         </a>
       </div>
@@ -60,7 +60,7 @@
                                 <input class="form-control" formControlName="customerNumber" type="text" placeholder=" Number" name="code" readonly>
                             </section>
                             <section class="col col-lg-6">
-                                <input class="form-control" formControlName="customerName" type="text" placeholder=" Name" name="description">
+                                <input class="form-control" formControlName="customerName" type="name" placeholder=" Name" name="description">
                             </section>
                             <section class="col col-lg-6">
                                 <select name="status" id="status" formControlName="status">
@@ -193,8 +193,8 @@
                                 <!-- References -->
                                 <mat-tab style="height:20px !important" label="References">
                                     <div class="child-wrapper">
-                                    <div class="float-child1" style="width: 20%;">
-                                        <section class="col col-lg-6" style="padding-right:180px;">
+                                    <div class="float-child1" style="width: 35%;">
+                                        <section class="col col-lg-6" style="padding-right:18px;">
                                             <label class="label">Sales Representative</label>
                                         </section>
                                         <section class="col col-lg-6">
@@ -207,7 +207,7 @@
                                             <label class="label">Number Of Pallets</label>
                                         </section>
                                     </div>
-                                    <div class="float-child2" style="padding-left:40px;">
+                                    <div class="float-child2" style="padding-left:10px;">
                                         <section class="col col-lg-6 float-container">
                                             <input autocomplete="off" list="salesRepresentative" class="form-control" formControlName="salesRepresentative" type="text" placeholder="" name="customer">
                                             <datalist id="salesRepresentative">
@@ -224,7 +224,7 @@
                                             <input class="input-field" formControlName="bevLicenseNumber" type="text" placeholder="Zip" name="shippingZip">
                                         </section>
                                         <section class="col col-lg-6">
-                                            <input class="input-field"  type="number" formControlName="numberOfPallets" placeholder=" City" name="shippingCity">
+                                            <input class="input-field"  type="number" formControlName="numberOfPallets" placeholder=" Pallets" name="shippingCity">
                                         </section>
                                     </div>
                                     </div>

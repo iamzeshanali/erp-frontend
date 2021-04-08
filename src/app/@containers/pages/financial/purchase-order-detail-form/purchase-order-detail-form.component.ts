@@ -3,6 +3,7 @@ import {Form, FormControl, FormGroup, Validators} from "@angular/forms";
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '@app/@services/api.service';
 import { NotificationsService } from 'angular2-notifications';
+import { data } from 'autoprefixer';
 @Component({
   selector: 'app-purchase-order-detail-form',
   templateUrl: './purchase-order-detail-form.component.html',
@@ -19,7 +20,7 @@ export class PurchaseOrderDetailFormComponent implements OnInit {
   invoiceNumber: any;
   receiptNumber:any;
   response: any;
-
+  nextID:any;
   dummyDataForm: any[]=[];
 
   editRoute : boolean = false;
@@ -33,23 +34,44 @@ export class PurchaseOrderDetailFormComponent implements OnInit {
   @Output() deleteSalesInvoice: EventEmitter<any> = new EventEmitter<any>();
 
   ngOnChanges(){
-    this.formData.patchValue({
-      purchaseOrder: this.salesInvoiceNumber
-    });
-    this.formData.patchValue({
-      product: this.editData?.product,
-      brand: this.editData?.brand,
-      dueDate: this.editData?.dueDate,
-      quantity: this.editData?.quantity,
-      price: this.editData?.unitPrice,
-      total: this.editData?.total,
-      discount: this.editData?.discount,
-      discountType: this.editData?.discountType,
-    });
+  
+    if(this.editData != null){
+      this.formData.patchValue({
+        id: this.editData?.id,
+        product: this.editData?.product,
+        brand: this.editData?.brand,
+        dueDate: this.editData?.dueDate,
+        quantity: this.editData?.quantity,
+        unitPrice: this.editData?.unitPrice,
+        total: this.editData?.total,
+        discount: this.editData?.discount,
+        discountType: this.editData?.discountType,
+        purchaseOrder: this.editData?.purchaseOrder
+      });
+    }
+    else{
+      this.formData.patchValue({
+        id: this.nextID,
+        product: '',
+        brand: '',
+        dueDate: '',
+        quantity: '',
+        unitPrice: '',
+        total: '',
+        discount: '',
+        discountType: '',
+        purchaseOrder: this.salesInvoiceNumber
+      });
+    }
+   
+    
   }
   constructor(private ApiService:ApiService, private route: ActivatedRoute, private router: Router, private notificationService:NotificationsService)
   {
-    
+    this.ApiService.getAPI('purchaseOrderDetail').subscribe(data => {
+      this.fetchedData = data;
+       this.nextID = this.fetchedData[this.fetchedData.length-1].id+1;
+      });
   }
 
   setBlankActive(){
@@ -71,11 +93,12 @@ export class PurchaseOrderDetailFormComponent implements OnInit {
   }
 
   formData = new FormGroup({
+    id:new FormControl(''),
     product:new FormControl('',Validators.required),
     brand: new FormControl('',Validators.required),
     dueDate: new FormControl('',Validators.required),
     quantity: new FormControl('',Validators.required),
-    price: new FormControl('',Validators.required),
+    unitPrice: new FormControl('',Validators.required),
     total: new FormControl('',Validators.required),
     discount: new FormControl('',Validators.required),
     discountType: new FormControl('',Validators.required),
@@ -90,7 +113,7 @@ export class PurchaseOrderDetailFormComponent implements OnInit {
         brand: '',
         dueDate: '',
         quantity: '',
-        price: '',
+        unitPrice: '',
         total: '',
         discount: '',
         discountType: '',
@@ -101,7 +124,7 @@ export class PurchaseOrderDetailFormComponent implements OnInit {
     } 
   }
   DeletePaymentTerm(){
-    this.deleteSalesInvoice.emit(this.formData.get('product')?.value);
+    this.deleteSalesInvoice.emit(this.formData.get('id')?.value);
   }
 
 }
