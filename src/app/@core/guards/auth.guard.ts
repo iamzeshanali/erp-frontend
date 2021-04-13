@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-
+      // If local storage has username stored inside user
       var user = localStorage.getItem('user');
    
       if(user){

@@ -35,6 +35,6 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
         clickToClose: true,
       }
     ),
-  ],
+  ]
 })
 export class AuthModule {}

@@ -25,6 +25,7 @@ import { ActivateGuard } from './@core/guards/activate.guard';
 // import { AuthService } from './+auth/services/auth.service';
 import { AuthService } from './@services/auth.service';
 import { PagesModule } from './@containers/pages/pages.module';
+import { SignInPage } from './+auth/pages/sign-in/sign-in.page';
 
 @NgModule({
   declarations: [AppComponent],

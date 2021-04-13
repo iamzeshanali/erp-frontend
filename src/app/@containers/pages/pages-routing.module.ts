@@ -42,10 +42,15 @@ import { AuthGuard } from '@app/@core/guards';
 import { ActivateGuard } from '@app/@core/guards/activate.guard';
 import { AuthService } from '@app/+auth/services/auth.service';
 import { DashboardPage } from './home/dashboard/dashboard.page';
+import { SignInPage } from '@app/+auth/pages/sign-in/sign-in.page';
 
 const routes: Routes = [
   /*SALES ROUTE*/
-    { path: '', component: DashboardPage},
+    // SIGNIN_PAGE
+    { path: '', component: SignInPage},
+
+    // DASHBOARD_PAGE
+    { path: 'dashboard', component: DashboardPage, canActivate: [AuthGuard]},
     // BRANDS
     { path: 'sales/brands', component: BrandsComponent, canActivate: [AuthGuard]},
     { path: 'sales/brands/form', component: BrandsFormComponent, canActivate: [AuthGuard]},
